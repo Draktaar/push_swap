@@ -17,13 +17,13 @@ void	printlist(t_list *stack)
 	t_list	*temp;
 	
 	temp = stack;
-	printf(" %d\n", temp->nb);
-	temp = temp->next;
-	while (temp != stack)
+	while (temp->next != stack)
 	{
 		printf(" %d\n", temp->nb);
 		temp = temp->next;
 	}
+	printf(" %d\n", temp->nb);
+	printf("---\n");
 }
 
 void	rprintlist(t_list *stack)
@@ -31,12 +31,12 @@ void	rprintlist(t_list *stack)
 	t_list	*temp;
 	
 	temp = stack;
-	temp = temp->previous;
-	while (temp != stack)
+	while (temp->previous != stack)
 	{
-		printf(" %d\n", temp->nb);
 		temp = temp->previous;
+		printf(" %d\n", temp->nb);
 	}
+	temp = temp->previous;
 	printf(" %d\n", temp->nb);
 }
 
@@ -116,7 +116,7 @@ int	main(int argc, char **argv)
 		else if (ft_lstsize(a) <= 5)
 			ft_fivesort(&a, &b);
 	}
-	printlist(a);
+	rprintlist(a);
 	ft_lstclear(&a);
 	return (0);
 }

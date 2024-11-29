@@ -15,11 +15,12 @@
 int	is_sorted(t_list *stack)
 {
 	t_list	*temp;
+	t_list	*list;
 
-	temp = stack;
-	while (temp->next)
+	temp = stack->next;
+	while (temp != stack)
 	{
-		if (temp->nb > temp->next->nb)
+		if (temp->nb < temp->previous->nb)
 			return (0);
 		temp = temp->next;
 	}
@@ -44,8 +45,6 @@ int	get_top(t_list *a, t_list *b)
 	j = 0;
 	prv = a;
 	nxt = a;
-	while (nxt->next)
-		
 	while (prv->next)
 		prv = prv->next;
 	while (prv->previous)

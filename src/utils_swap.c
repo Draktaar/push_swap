@@ -14,40 +14,38 @@
 
 void	sa(t_list **a)
 {
-	t_list	*swap_1;
-	t_list	*swap_2;
+	t_list	*swap1;
+	t_list	*swap2;
 
-	if (!a || !*a)
+	if (!a || !*a || !(*a)->next)
 		return ;
-	swap_1 = *a;
-	if (!swap_1->next)
-		return ;
-	swap_2 = swap_1->next;
-	swap_1->next->next->previous = swap_1;
-	swap_2->previous = NULL;
-	swap_1->previous = swap_2;
-	swap_1->next = swap_2->next;
-	swap_2->next = swap_1;
-	*a = swap_2;
+	swap1 = *a;
+	swap2 = (*a)->next;
+	swap1->previous->next = swap2;
+	swap2->next->previous = swap1;
+	swap2->previous = swap1->previous;
+	swap1->next = swap2->next;
+	swap1->previous = swap2;
+	swap2->next = swap1;
+	*a = swap2;
 }
 
 void	sb(t_list **b)
 {
-	t_list	*swap_1;
-	t_list	*swap_2;
+	t_list	*swap1;
+	t_list	*swap2;
 
-	if (!b || !*b)
+	if (!b || !*b || !(*b)->next)
 		return ;
-	swap_1 = *b;
-	if (!swap_1->next)
-		return ;
-	swap_2 = swap_1->next;
-	swap_1->next->next->previous = swap_1;
-	swap_2->previous = NULL;
-	swap_1->previous = swap_2;
-	swap_1->next = swap_2->next;
-	swap_2->next = swap_1;
-	*b = swap_2;
+	swap1 = *b;
+	swap2 = (*b)->next;
+	swap1->previous->next = swap2;
+	swap2->next->previous = swap1;
+	swap2->previous = swap1->previous;
+	swap1->next = swap2->next;
+	swap1->previous = swap2;
+	swap2->next = swap1;
+	*b = swap2;
 }
 
 void	ss(t_list **a, t_list **b)

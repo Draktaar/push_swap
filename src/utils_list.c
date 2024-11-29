@@ -45,39 +45,33 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 int	ft_lstsize(t_list *lst)
 {
 	int		i;
-	t_list	*list;
+	t_list	*temp;
 
-	if (!lst)
-		return (0);
 	i = 1;
-	list = lst;
-	while (list->next)
+	temp = lst;
+	while (temp->next != lst)
 	{
-		list = list->next;
+		temp = temp->next;
 		i++;
 	}
 	return (i);
 }
 
-static void	ft_lstdelone(t_list *lst)
-{
-	if (!lst)
-		return ;
-	//free(lst->content);
-	free(lst);
-}
-
 void	ft_lstclear(t_list **lst)
 {
 	t_list	*list;
+	t_list	*temp;
 
-	if (!lst || !*lst)
-		return ;
-	list = *lst;
-	while (lst && *lst)
+	if (lst || *lst)
 	{
-		list = (*lst)->next;
-		ft_lstdelone((*lst));
-		*lst = list;
+		temp = (*lst)->next;
+		while (temp && (temp != *lst))
+		{
+			list = temp;
+			temp = temp->next;
+			free(list);
+		}
+		free(*lst);
+		*lst = NULL;
 	}
 }

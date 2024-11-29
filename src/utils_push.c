@@ -26,33 +26,38 @@ void	pa(t_list **a, t_list **b)
 	if (!a || !*a)
 	{
 		*a = temp_b;
+		(*a)->next = temp_b;
+		(*a)->previous = temp_b;
 		return ;
 	}
-	(*a)->next->previous = temp_b;
 	temp_b->next = *a;
 	temp_b->previous = (*a)->previous;
+	(*a)->previous->next = temp_b;
+	(*a)->previous = temp_b;
 	*a = temp_b;
 }
 
 void	pb(t_list **a, t_list **b)
 {
 	t_list	*temp_a;
-	t_list	*temp_b;
 
 	if (!*a)
 		return ;
 	temp_a = *a;
-	(*a)->next->previous = temp_b->previous;
-	(*a)->previous->next = temp_b->next;
+	(*a)->next->previous = temp_a->previous;
+	(*a)->previous->next = temp_a->next;
 	*a = temp_a->next;
 	temp_a->next = NULL;
 	if (!b || !*b)
 	{
 		*b = temp_a;
+		(*b)->next = temp_a;
+		(*b)->previous = temp_a;
 		return ;
 	}
-	(*b)->next->previous = temp_b;
-	temp_b->next = *b;
-	temp_b->previous = (*b)->previous;
+	temp_a->next = *b;
+	temp_a->previous = (*b)->previous;
+	(*b)->previous->next = temp_a;
+	(*b)->previous = temp_a;
 	*b = temp_a;
 }

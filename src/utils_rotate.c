@@ -15,41 +15,19 @@
 void	ra(t_list **a)
 {
 	t_list	*temp;
-	t_list	*prev;
-	t_list	*list;
 
-	if (!a || !*a)
-		return ;
 	temp = *a;
-	temp->next->previous = NULL;
-	*a = temp->next;
-	temp->next = NULL;
-	list = *a;
-	while (list->next)
-		list = list->next;
-	prev = list;
-	temp->previous = prev;
-	list->next = temp;
+	temp = temp->next;
+	*a = temp;
 }
 
 void	rb(t_list **b)
 {
 	t_list	*temp;
-	t_list	*prev;
-	t_list	*list;
 
-	if (!b || !*b)
-		return ;
 	temp = *b;
-	temp->next->previous = NULL;
-	*b = temp->next;
-	temp->next = NULL;
-	list = *b;
-	while (list->next)
-		list = list->next;
-	prev = list;
-	temp->previous = prev;
-	list->next = temp;
+	temp = temp->next;
+	*b = temp;
 }
 
 void	rr(t_list **a, t_list **b)
