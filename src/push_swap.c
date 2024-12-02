@@ -96,6 +96,7 @@ void	ft_init(t_list **stack, char *str)
 
 int	main(int argc, char **argv)
 {
+	int		size;
 	char	**num;
 	t_list	*a;
 	t_list	*b;
@@ -107,16 +108,12 @@ int	main(int argc, char **argv)
 	ft_init(&a, argv[1]);
 	if (!a)
 		return (ft_lstclear(&a), 0);
-	while (!is_sorted(a))
-	{
-		if (ft_lstsize(a) == 2)
-			sa(&a);
-		else if (ft_lstsize(a) == 3)
-			ft_threesort(&a);
-		else if (ft_lstsize(a) <= 5)
-			ft_fivesort(&a, &b);
-	}
-	rprintlist(a);
+	size = ft_lstsize(a);
+	if (size <= 5)
+		ft_minisort(&a, &b);
+	else
+		ft_sort(&a, &b);
+	printlist(a);
 	ft_lstclear(&a);
 	return (0);
 }

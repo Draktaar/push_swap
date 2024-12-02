@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mini_sort.c                                        :+:      :+:    :+:   */
+/*   ft_mini_sort.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: achu <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,7 +12,7 @@
 
 #include "../includes/push_swap.h"
 
-void	ft_threesort(t_list **stack)
+static void	ft_three(t_list **stack)
 {
 	int	top;
 	int	mid;
@@ -39,16 +39,63 @@ void	ft_threesort(t_list **stack)
 		rra(stack);
 }
 
-void	ft_fivesort(t_list **a, t_list **b)
+static void	ft_four(t_list **a, t_list **b)
 {
+	int	min;
+
+	min = get_minimum(*a);
+	while ((*a)->nb != min)
+		ra(a);
 	pb(a, b);
+	ft_three(a);
+	pa(a, b);
+}
+
+static void	ft_five(t_list **a, t_list **b)
+{
+	int	min;
+	int size;
+
+	min = get_minimum(*a);
 	pb(a, b);
-	ft_threesort(a);
-	while ((*b))
+	while ((*a)->nb != min)
+		ra(a);
+	pb(a, b);
+	ft_three(a);
+	pa(a, b);
+	size = ft_perfect_spot(*a, *b);
+	while (size != 0)
 	{
-		if ((*a)->nb < (*b)->nb)
-			pa(a, b);
+		if (size < 0)
+		{
+			rra(a);
+			size++;
+		}
 		else
+		{
 			ra(a);
+			size--;
+		}
+	}
+	pa(a, b);
+	while (!is_sorted(*a))
+		ra(a);
+}
+
+void	ft_minisort(t_list **a, t_list **b)
+{
+	int	size;
+
+	size = ft_lstsize(*a);
+	if (!is_sorted(*a))
+	{
+		if (size == 2)
+			sa(a);
+		else if (size == 3)
+			ft_three(a);
+		else if (size == 4)
+			ft_four(a, b);
+		else if (size == 5)
+			ft_five(a, b);
 	}
 }

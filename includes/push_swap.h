@@ -36,9 +36,15 @@ int		ft_lstsize(t_list *lst);
 void	ft_lstclear(t_list **lst);
 
 //*** Sorting ***
+void	printlist(t_list *stack);
 int		is_sorted(t_list *stack);
-void	ft_threesort(t_list **stack);
-void	ft_fivesort(t_list **a, t_list **b);
+void	ft_sort(t_list **a, t_list **b);
+void	ft_minisort(t_list **a, t_list **b);
+
+//*** Algo ***
+int		get_minimum(t_list *stack);
+int		get_maximum(t_list *stack);
+int		ft_perfect_spot(t_list *a, t_list *b);
 
 //*** Operation ***
 void	sa(t_list **a);
