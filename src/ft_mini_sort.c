@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_mini_sort.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: achu <marvin@42.fr>                        +#+  +:+       +#+        */
+/*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 11:55:51 by achu              #+#    #+#             */
-/*   Updated: 2024/11/27 11:55:52 by achu             ###   ########.fr       */
+/*   Updated: 2024/12/03 16:33:58 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static void	ft_four(t_list **a, t_list **b)
 {
 	int	min;
 
-	min = get_minimum(*a);
+	min = get_min(*a);
 	while ((*a)->nb != min)
 		ra(a);
 	pb(a, b);
@@ -56,7 +56,7 @@ static void	ft_five(t_list **a, t_list **b)
 	int	min;
 	int size;
 
-	min = get_minimum(*a);
+	min = get_min(*a);
 	pb(a, b);
 	while ((*a)->nb != min)
 		ra(a);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: achu <marvin@42.fr>                        +#+  +:+       +#+        */
+/*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 14:11:56 by achu              #+#    #+#             */
-/*   Updated: 2024/11/25 14:11:57 by achu             ###   ########.fr       */
+/*   Updated: 2024/12/03 22:23:46 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,14 @@ int		is_sorted(t_list *stack);
 void	ft_sort(t_list **a, t_list **b);
 void	ft_minisort(t_list **a, t_list **b);
 
+///*** Maths ***
+int		ft_abs(int nb);
+int		get_min(t_list *stack);
+int		get_max(t_list *stack);
+int		ft_nbcmp(int nb, int max);
+
 //*** Algo ***
-int		get_minimum(t_list *stack);
-int		get_maximum(t_list *stack);
+int		is_chunk(t_list *stack, int max);
 int		ft_perfect_spot(t_list *a, t_list *b);
 
 //*** Operation ***

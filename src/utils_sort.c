@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: achu <marvin@42.fr>                        +#+  +:+       +#+        */
+/*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 15:54:04 by achu              #+#    #+#             */
-/*   Updated: 2024/11/29 15:54:06 by achu             ###   ########.fr       */
+/*   Updated: 2024/12/03 19:37:50 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,38 +34,6 @@ int	is_valid(t_list *a, t_list *b)
 	return (0);
 }
 
-int	get_minimum(t_list *stack)
-{
-	t_list	*temp;
-	int		min;
-
-	min = stack->nb;
-	temp = stack;
-	while (temp->next != stack)
-	{
-		if (temp->nb < min)
-			min = temp->nb;
-		temp = temp->next;
-	}
-	return (min);
-}
-
-int	get_maximum(t_list *stack)
-{
-	t_list	*temp;
-	int		max;
-
-	max = stack->nb;
-	temp = stack;
-	while (temp->next != stack)
-	{
-		if (temp->nb > max)
-			max = temp->nb;
-		temp = temp->next;
-	}
-	return (max);
-}
-
 int	is_min(int a, int b)
 {
 	if (a < 0)
@@ -76,6 +44,20 @@ int	is_min(int a, int b)
 		return (a);
 	else
 		return (b);
+}
+
+int	is_chunk(t_list *stack, int max)
+{
+	t_list	*temp;
+
+	temp = stack;
+	while (temp->next != stack)
+	{
+		if (temp->nb <= max)
+			return (1);
+		temp = temp->next;
+	}
+	return (0);
 }
 
 int	ft_perfect_spot(t_list *a, t_list *b)
@@ -111,19 +93,19 @@ int	ft_optimal_path(t_list **a, t_list **b)
 	t_list	*nxt;
 
 	i = 0;
-	min = ft_perfect_spot(a, b);
+	min = ft_perfect_spot(*a, *b);
 	prv = *b;
 	nxt = *b;
 	while (i < 5)
 	{
-		if (ft_perfect_spot(a, prv) < min)
+		if (ft_perfect_spot(*a, prv) < min)
 		{
-			min = ft_perfect_spot(a, prv);
+			min = ft_perfect_spot(*a, prv);
 			step = -i;	
 		}
-		if (ft_perfect_spot(a, nxt) < min)
+		if (ft_perfect_spot(*a, nxt) < min)
 		{
-			min = ft_perfect_spot(a, nxt);
+			min = ft_perfect_spot(*a, nxt);
 			step = i;	
 		}
 		prv = prv->previous;
@@ -133,7 +115,7 @@ int	ft_optimal_path(t_list **a, t_list **b)
 	return (step);
 }
 
-void	aroarr(t_list **a, t_list **b)
-{
+// void	aroarr(t_list **a, t_list **b)
+// {
 	
-}
+// }

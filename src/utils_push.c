@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_push.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: achu <marvin@42.fr>                        +#+  +:+       +#+        */
+/*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 15:02:15 by achu              #+#    #+#             */
-/*   Updated: 2024/11/25 15:02:15 by achu             ###   ########.fr       */
+/*   Updated: 2024/12/03 21:42:47 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,18 @@ void	pa(t_list **a, t_list **b)
 	if (!*b)
 		return ;
 	temp_b = *b;
-	(*b)->next->previous = temp_b->previous;
-	(*b)->previous->next = temp_b->next;
-	*b = temp_b->next;
-	temp_b->next = NULL;
+	if ((*b)->next == *b)
+	{
+		(*b)->next = NULL;
+		(*b)->previous = NULL;
+		*b = NULL;
+	}
+	else
+	{
+		(*b)->next->previous = temp_b->previous;
+		(*b)->previous->next = temp_b->next;
+		*b = temp_b->next;
+	}
 	if (!a || !*a)
 	{
 		*a = temp_b;
@@ -30,10 +38,10 @@ void	pa(t_list **a, t_list **b)
 		(*a)->previous = temp_b;
 		return ;
 	}
-	temp_b->next = *a;
 	temp_b->previous = (*a)->previous;
+	temp_b->next = *a;
 	(*a)->previous->next = temp_b;
-	(*a)->previous = temp_b;
+	(*a)->previous  = temp_b;
 	*a = temp_b;
 }
 
@@ -44,10 +52,18 @@ void	pb(t_list **a, t_list **b)
 	if (!*a)
 		return ;
 	temp_a = *a;
-	(*a)->next->previous = temp_a->previous;
-	(*a)->previous->next = temp_a->next;
-	*a = temp_a->next;
-	temp_a->next = NULL;
+	if ((*a)->next == *a)
+	{
+		(*a)->next = NULL;
+		(*a)->previous = NULL;
+		*a = NULL;
+	}
+	else
+	{
+		(*a)->next->previous = temp_a->previous;
+		(*a)->previous->next = temp_a->next;
+		*a = temp_a->next;
+	}
 	if (!b || !*b)
 	{
 		*b = temp_a;
@@ -55,8 +71,8 @@ void	pb(t_list **a, t_list **b)
 		(*b)->previous = temp_a;
 		return ;
 	}
-	temp_a->next = *b;
 	temp_a->previous = (*b)->previous;
+	temp_a->next = *b;
 	(*b)->previous->next = temp_a;
 	(*b)->previous = temp_a;
 	*b = temp_a;

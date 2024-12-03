@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: achu <marvin@42.fr>                        +#+  +:+       +#+        */
+/*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 14:10:38 by achu              #+#    #+#             */
-/*   Updated: 2024/11/25 14:10:39 by achu             ###   ########.fr       */
+/*   Updated: 2024/12/03 22:18:16 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	printlist(t_list *stack)
 {
 	t_list	*temp;
 	
+	if (stack==0)
+		return ;
 	temp = stack;
 	while (temp->next != stack)
 	{
@@ -40,7 +42,7 @@ void	rprintlist(t_list *stack)
 	printf(" %d\n", temp->nb);
 }
 
-int	is_digit(char *str)
+static int	is_digit(char *str)
 {
 	int		i;
 	char	*max;
@@ -65,7 +67,7 @@ int	is_digit(char *str)
 	return (num);
 }
 
-void	ft_init(t_list **stack, char *str)
+static void	ft_init(t_list **stack, char *str)
 {
 	t_list	*temp;
 	t_list	*prev;
@@ -113,7 +115,10 @@ int	main(int argc, char **argv)
 		ft_minisort(&a, &b);
 	else
 		ft_sort(&a, &b);
+	printf("test A\n");
 	printlist(a);
+	printf("test B\n");
+	printlist(b);
 	ft_lstclear(&a);
 	return (0);
 }
