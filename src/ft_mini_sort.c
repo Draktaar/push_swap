@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 11:55:51 by achu              #+#    #+#             */
-/*   Updated: 2024/12/03 16:33:58 by achu             ###   ########.fr       */
+/*   Updated: 2024/12/04 21:44:04 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ static void	ft_five(t_list **a, t_list **b)
 	pb(a, b);
 	ft_three(a);
 	pa(a, b);
-	size = ft_perfect_spot(*a, *b);
+	size = aroarr(*a, *b);
 	while (size != 0)
 	{
 		if (size < 0)

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 14:10:38 by achu              #+#    #+#             */
-/*   Updated: 2024/12/03 22:18:16 by achu             ###   ########.fr       */
+/*   Updated: 2024/12/04 21:57:17 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,11 +114,7 @@ int	main(int argc, char **argv)
 	if (size <= 5)
 		ft_minisort(&a, &b);
 	else
-		ft_sort(&a, &b);
-	printf("test A\n");
-	printlist(a);
-	printf("test B\n");
-	printlist(b);
-	ft_lstclear(&a);
+		ft_pushswap(&a, &b);
+	//ft_lstclear(&a);
 	return (0);
 }
