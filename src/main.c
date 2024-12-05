@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 14:10:38 by achu              #+#    #+#             */
-/*   Updated: 2024/12/05 18:29:36 by achu             ###   ########.fr       */
+/*   Updated: 2024/12/06 00:51:51 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,30 @@ static void	ft_init(t_list **stack, char *str)
 	ft_clearsplit(tab);
 }
 
+static void	ft_test(t_list **stack, char **argv)
+{
+	int	i;
+	t_list	*loop;
+	t_list	*temp;
+	t_list	*prev;
+
+	i = 0;
+	prev = NULL;
+	while (argv[i])
+	{
+		temp = ft_lstnew(ft_atoi(argv[i]));
+		temp->previous = prev;
+		prev = temp;
+		ft_lstadd_back(stack, temp);
+		i++;
+	}
+	loop = *stack;
+	while (loop->next)
+		loop = loop->next;
+	loop->next = (*stack);
+	(*stack)->previous = loop;
+}
+
 int	main(int argc, char **argv)
 {
 	int		size;
@@ -103,9 +127,10 @@ int	main(int argc, char **argv)
 
 	a = NULL;
 	b = NULL;
-	if (argc != 2 || !argv[1])
-		return (write(1, "Error\n", 6), 1);
-	ft_init(&a, argv[1]);
+	// if (argc != 2 || !argv[1])
+	// 	return (write(1, "Error\n", 6), 1);
+	//ft_init(&a, argv[1]);
+	ft_test(&a, argv);
 	if (!a)
 		return (ft_lstclear(&a), 0);
 	size = ft_lstsize(a);
@@ -113,6 +138,6 @@ int	main(int argc, char **argv)
 		ft_minisort(&a, &b);
 	else
 		ft_pushswap(&a, &b);
-	//ft_lstclear(&a);
+	ft_lstclear(&a);
 	return (0);
 }
