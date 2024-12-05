@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 14:11:56 by achu              #+#    #+#             */
-/*   Updated: 2024/12/04 21:56:35 by achu             ###   ########.fr       */
+/*   Updated: 2024/12/05 18:29:50 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,9 @@ int		ft_nbcmp(int nb, int max);
 
 //*** Algo ***
 int		is_underchunk(t_list *stack, int max);
-int		aroarr(t_list *a, t_list *b);
+int		is_aroarr(t_list *a, t_list *b);
+int		is_brobrr(t_list *a, t_list *b);
+int	is_min(int a, int b);
 
 //*** Operation ***
 void	sa(t_list **a);

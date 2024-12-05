@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 15:54:04 by achu              #+#    #+#             */
-/*   Updated: 2024/12/05 10:14:46 by achu             ###   ########.fr       */
+/*   Updated: 2024/12/05 18:29:57 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,16 @@ int	is_valid(t_list *a, t_list *b)
 
 int	is_min(int a, int b)
 {
-	if (a < 0)
-		a = -a;
-	if (b < 0)
-		b = -b;
-	if (a < b)
+	int	temp_a;
+	int	temp_b;
+
+	temp_a = a;
+	temp_b = b;
+	if (temp_a < 0)
+		temp_a = -a;
+	if (temp_b < 0)
+		temp_b = -b;
+	if (temp_a < temp_b)
 		return (a);
 	else
 		return (b);
@@ -60,7 +65,7 @@ int	is_underchunk(t_list *stack, int max)
 	return (0);
 }
 
-int	aroarr(t_list *a, t_list *b)
+int	is_aroarr(t_list *a, t_list *b)
 {
 	int		i;
 	int		j;
@@ -84,7 +89,7 @@ int	aroarr(t_list *a, t_list *b)
 	return (is_min(i, j));
 }
 
-int	brobrr(t_list **a, t_list **b)
+int	is_brobrr(t_list *a, t_list *b)
 {
 	int		i;
 	int		min;
@@ -93,20 +98,21 @@ int	brobrr(t_list **a, t_list **b)
 	t_list	*nxt;
 
 	i = 0;
-	min = aroarr(*a, *b);
-	prv = *b;
-	nxt = *b;
+	step = 0;
+	min = ft_abs(is_aroarr(a, b));
+	prv = b;
+	nxt = b;
 	while (i < 5)
 	{
-		if (aroarr(*a, prv) < min)
+		if (ft_abs(is_aroarr(a, prv)) < min)
 		{
-			min = aroarr(*a, prv);
-			step = -i;	
+			min = ft_abs(is_aroarr(a, prv));
+			step = -i;
 		}
-		if (aroarr(*a, nxt) < min)
+		if (ft_abs(is_aroarr(a, prv)) < min)
 		{
-			min = aroarr(*a, nxt);
-			step = i;	
+			min = ft_abs(is_aroarr(a, prv));
+			step = i;
 		}
 		prv = prv->previous;
 		nxt = nxt->next;

@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 14:10:38 by achu              #+#    #+#             */
-/*   Updated: 2024/12/04 21:57:17 by achu             ###   ########.fr       */
+/*   Updated: 2024/12/05 18:29:36 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,7 @@
 void	printlist(t_list *stack)
 {
 	t_list	*temp;
-	
-	if (stack==0)
-		return ;
+
 	temp = stack;
 	while (temp->next != stack)
 	{
