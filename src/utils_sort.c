@@ -21,8 +21,6 @@ int	is_sorted(t_list *stack)
 	{
 		if (temp->next->nb < temp->nb)
 			return (0);
-		else if (temp->previous->nb > temp->nb)
-			return (0);
 		temp = temp->next;
 	}
 	return (1);
@@ -35,21 +33,11 @@ int	is_valid(t_list *a, t_list *b)
 	return (0);
 }
 
-int	is_min(int a, int b)
+int	is_minamax(t_list *a, int find)
 {
-	int	temp_a;
-	int	temp_b;
-
-	temp_a = a;
-	temp_b = b;
-	if (temp_a < 0)
-		temp_a = -a;
-	if (temp_b < 0)
-		temp_b = -b;
-	if (temp_a < temp_b)
-		return (a);
-	else
-		return (b);
+	if (a->nb == find)
+		return (1);
+	return (0);
 }
 
 int	is_inchunk(t_list *stack, int max)
@@ -66,58 +54,22 @@ int	is_inchunk(t_list *stack, int max)
 	return (0);
 }
 
-int	is_aroarr(t_list *a, t_list *b)
+void	rorr(t_list **stack, int step)
 {
-	int		i;
-	int		j;
-	t_list	*prv;
-	t_list	*nxt;
+	int	i;
 
-	i = 0;
-	j = 0;
-	prv = a;
-	nxt = a;
-	while (!is_valid(prv, b) && prv->previous != a)
+	i = step;
+	while (i != 0)
 	{
-		prv = prv->previous;
-		i--;
-	}
-	while (!is_valid(nxt, b) && nxt->next != a)
-	{
-		nxt = nxt->next;
-		j++;
-	}
-	return (is_min(i, j));
-}
-
-int	is_brobrr(t_list *a, t_list *b)
-{
-	int		i;
-	int		min;
-	int		step;
-	t_list	*prv;
-	t_list	*nxt;
-
-	i = 0;
-	step = 0;
-	min = ft_abs(is_aroarr(a, b));
-	prv = b;
-	nxt = b;
-	while (i < 5)
-	{
-		if (ft_abs(is_aroarr(a, prv)) < min)
+		if (i < 0)
 		{
-			min = ft_abs(is_aroarr(a, prv));
-			step = -i;
+			rra(stack);
+			i++;
 		}
-		if (ft_abs(is_aroarr(a, prv)) < min)
+		else
 		{
-			min = ft_abs(is_aroarr(a, prv));
-			step = i;
+			ra(stack);
+			i--;
 		}
-		prv = prv->previous;
-		nxt = nxt->next;
-		i++;
 	}
-	return (step);
 }

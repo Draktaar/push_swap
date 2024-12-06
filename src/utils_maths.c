@@ -19,9 +19,12 @@ int	ft_abs(int nb)
 	return (nb);
 }
 
-int	ft_nbcmp(int nb, int max)
+int	ft_mincmp(int a, int b)
 {
-	return (nb <= max);
+	if (ft_abs(a) < ft_abs(b))
+		return (a);
+	else
+		return (b);
 }
 
 int	get_min(t_list *stack)

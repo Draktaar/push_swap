@@ -38,20 +38,23 @@ void	ft_lstclear(t_list **lst);
 //*** Sorting ***
 void	printlist(t_list *stack);
 int		is_sorted(t_list *stack);
+int		is_valid(t_list *a, t_list *b);
+int		is_minamax(t_list *a, int find);
 void	ft_pushswap(t_list **a, t_list **b);
 void	ft_minisort(t_list **a, t_list **b);
 
 ///*** Maths ***
 int		ft_abs(int nb);
+int		ft_mincmp(int a, int b);
 int		get_min(t_list *stack);
 int		get_max(t_list *stack);
-int		ft_nbcmp(int nb, int max);
 
 //*** Algo ***
 int		is_inchunk(t_list *stack, int max);
+void	ft_blabla(t_list **a, t_list **b, int *min, int *max);
+int	get_aroarr(t_list *a, t_list *b, int min, int max);
 int		is_aroarr(t_list *a, t_list *b);
-int		is_brobrr(t_list *a, t_list *b);
-int	is_min(int a, int b);
+int		is_brobrr(t_list *a, t_list *b, int min, int max);
 
 //*** Operation ***
 void	sa(t_list **a);
@@ -65,5 +68,7 @@ void	rr(t_list **a, t_list **b);
 void	rra(t_list **a);
 void	rrb(t_list **b);
 void	rrr(t_list **a, t_list **b);
+
+void	rborrb(t_list **stack, int step);
 
 #endif

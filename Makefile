@@ -20,6 +20,8 @@ SRC =	src/ft_atoi.c \
 		src/ft_pushswap.c \
 		src/ft_split.c \
 		src/main.c \
+		src/utils_asort.c \
+		src/utils_bsort.c \
 		src/utils_list.c \
 		src/utils_maths.c \
 		src/utils_push.c \
