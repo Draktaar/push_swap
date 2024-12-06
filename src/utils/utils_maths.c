@@ -6,11 +6,11 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 16:28:31 by achu              #+#    #+#             */
-/*   Updated: 2024/12/03 22:23:26 by achu             ###   ########.fr       */
+/*   Updated: 2024/12/06 20:16:13 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 int	ft_abs(int nb)
 {

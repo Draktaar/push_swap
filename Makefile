@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: achu <marvin@42.fr>                        +#+  +:+       +#+         #
+#    By: achu <achu@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/25 14:10:45 by achu              #+#    #+#              #
-#    Updated: 2024/11/25 14:10:46 by achu             ###   ########.fr        #
+#    Updated: 2024/12/06 21:21:47 by achu             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,20 +15,20 @@ CFLAGS = -Wall -Wextra -Werror
 NAME = push_swap
 INCDIR = includes
 
-SRC =	src/ft_atoi.c \
-		src/ft_mini_sort.c \
-		src/ft_pushswap.c \
-		src/ft_split.c \
+SRC =	src/op/push.c \
+		src/op/rotate.c \
+		src/op/rrotate.c \
+		src/op/swap.c \
+		src/utils/ft_atoi.c \
+		src/utils/ft_split.c \
+		src/utils/utils_asort.c \
+		src/utils/utils_bsort.c \
+		src/utils/utils_list.c \
+		src/utils/utils_maths.c \
+		src/utils/utils_sort.c \
 		src/main.c \
-		src/utils_asort.c \
-		src/utils_bsort.c \
-		src/utils_list.c \
-		src/utils_maths.c \
-		src/utils_push.c \
-		src/utils_rotate.c \
-		src/utils_rrotate.c \
-		src/utils_sort.c \
-		src/utils_swap.c \
+		src/mini_sort.c \
+		src/pushswap.c \
 
 OBJS = $(SRC:.c=.o)
 
@@ -47,5 +47,7 @@ fclean: clean
 	rm -rf $(NAME)
 
 re: all clean
+
+i: all fclean
 
 .PHONY: all clean fclean re
