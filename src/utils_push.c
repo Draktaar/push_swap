@@ -36,6 +36,7 @@ void	pa(t_list **a, t_list **b)
 		*a = temp_b;
 		(*a)->next = temp_b;
 		(*a)->previous = temp_b;
+		write(1, "pa\n", 3);
 		return ;
 	}
 	temp_b->previous = (*a)->previous;
@@ -70,6 +71,7 @@ void	pb(t_list **a, t_list **b)
 		*b = temp_a;
 		(*b)->next = temp_a;
 		(*b)->previous = temp_a;
+		write(1, "pb\n", 3);
 		return ;
 	}
 	temp_a->previous = (*b)->previous;

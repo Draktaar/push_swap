@@ -15,12 +15,13 @@
 int	is_sorted(t_list *stack)
 {
 	t_list	*temp;
-	t_list	*list;
 
 	temp = stack;
 	while (temp->next != stack)
 	{
 		if (temp->next->nb < temp->nb)
+			return (0);
+		else if (temp->previous->nb > temp->nb)
 			return (0);
 		temp = temp->next;
 	}
@@ -51,7 +52,7 @@ int	is_min(int a, int b)
 		return (b);
 }
 
-int	is_underchunk(t_list *stack, int max)
+int	is_inchunk(t_list *stack, int max)
 {
 	t_list	*temp;
 

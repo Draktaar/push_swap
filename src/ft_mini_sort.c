@@ -87,6 +87,7 @@ void	ft_minisort(t_list **a, t_list **b)
 	int	size;
 
 	size = ft_lstsize(*a);
+	printf("%i", size);
 	if (!is_sorted(*a))
 	{
 		if (size == 2)

@@ -16,6 +16,8 @@ void	rra(t_list **a)
 {
 	t_list	*temp;
 
+	if (!*a)
+		return ;
 	temp = *a;
 	temp = temp->previous;
 	*a = temp;
@@ -26,6 +28,8 @@ void	rrb(t_list **b)
 {
 	t_list	*temp;
 
+	if (!*b)
+		return ;
 	temp = *b;
 	temp = temp->previous;
 	*b = temp;

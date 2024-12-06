@@ -48,7 +48,7 @@ int		get_max(t_list *stack);
 int		ft_nbcmp(int nb, int max);
 
 //*** Algo ***
-int		is_underchunk(t_list *stack, int max);
+int		is_inchunk(t_list *stack, int max);
 int		is_aroarr(t_list *a, t_list *b);
 int		is_brobrr(t_list *a, t_list *b);
 int	is_min(int a, int b);
