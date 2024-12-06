@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 15:02:05 by achu              #+#    #+#             */
-/*   Updated: 2024/12/03 20:26:15 by achu             ###   ########.fr       */
+/*   Updated: 2024/12/06 01:15:22 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	ra(t_list **a)
 	temp = *a;
 	temp = temp->next;
 	*a = temp;
+	write(1, "ra\n", 3);
 }
 
 void	rb(t_list **b)
@@ -32,10 +33,12 @@ void	rb(t_list **b)
 	temp = *b;
 	temp = temp->next;
 	*b = temp;
+	write(1, "rb\n", 3);
 }
 
 void	rr(t_list **a, t_list **b)
 {
 	ra(a);
 	rb(b);
+	write(1, "rr\n", 3);
 }

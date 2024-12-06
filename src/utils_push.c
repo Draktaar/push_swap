@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 15:02:15 by achu              #+#    #+#             */
-/*   Updated: 2024/12/03 21:42:47 by achu             ###   ########.fr       */
+/*   Updated: 2024/12/06 01:15:28 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ void	pa(t_list **a, t_list **b)
 	(*a)->previous->next = temp_b;
 	(*a)->previous  = temp_b;
 	*a = temp_b;
+	write(1, "pa\n", 3);
 }
 
 void	pb(t_list **a, t_list **b)
@@ -76,4 +77,5 @@ void	pb(t_list **a, t_list **b)
 	(*b)->previous->next = temp_a;
 	(*b)->previous = temp_a;
 	*b = temp_a;
+	write(1, "pb\n", 3);
 }

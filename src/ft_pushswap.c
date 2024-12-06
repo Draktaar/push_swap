@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 14:35:47 by achu              #+#    #+#             */
-/*   Updated: 2024/12/06 00:33:15 by achu             ###   ########.fr       */
+/*   Updated: 2024/12/06 01:14:47 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,5 +130,4 @@ void	ft_pushswap(t_list **a, t_list **b)
 	ft_sort(a, b);
 	while (!is_sorted(*a))
 		ra(a);
-	printlist(*a);
 }
