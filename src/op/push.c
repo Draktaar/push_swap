@@ -6,12 +6,15 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 15:02:15 by achu              #+#    #+#             */
-/*   Updated: 2024/12/06 20:16:00 by achu             ###   ########.fr       */
+/*   Updated: 2025/03/10 17:02:49 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "push_swap.h"
 
+// Setup the First of stack to remove all link
+// if the last of stack, NULL all link
+// else relink his previous neighbour
 static void	is_setup(t_list **stack, t_list *temp)
 {
 	if ((*stack)->next == *stack)
@@ -28,6 +31,7 @@ static void	is_setup(t_list **stack, t_list *temp)
 	}
 }
 
+// First of stack b in send to be First of stack a
 void	pa(t_list **a, t_list **b)
 {
 	t_list	*temp;
@@ -52,6 +56,7 @@ void	pa(t_list **a, t_list **b)
 	write(1, "pa\n", 3);
 }
 
+// First of stack a in send to be First of stack b
 void	pb(t_list **a, t_list **b)
 {
 	t_list	*temp;

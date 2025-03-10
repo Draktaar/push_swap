@@ -6,13 +6,16 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 14:26:14 by achu              #+#    #+#             */
-/*   Updated: 2024/12/06 20:16:08 by achu             ###   ########.fr       */
+/*   Updated: 2025/03/10 21:11:21 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "push_swap.h"
 
-void	rborrb(t_list **stack, int step)
+// Depends on the number of step to take
+// Do rb if the step are positive 
+// Do rrb if the step are negative 
+void	do_rborrb(t_list **stack, int step)
 {
 	int	i;
 

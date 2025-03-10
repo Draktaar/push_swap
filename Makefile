@@ -6,7 +6,7 @@
 #    By: achu <achu@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/25 14:10:45 by achu              #+#    #+#              #
-#    Updated: 2024/12/06 21:21:47 by achu             ###   ########.fr        #
+#    Updated: 2025/03/10 16:45:39 by achu             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,7 +47,5 @@ fclean: clean
 	rm -rf $(NAME)
 
 re: all clean
-
-i: all fclean
 
 .PHONY: all clean fclean re

@@ -1,33 +1,28 @@
+push_swap
+checker
+
 # Prerequisites
 *.d
 
 # Object files
 *.o
-*.ko
 *.obj
-*.elf
 
-# Libraries
-*.lib
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Static libraries
+*.lai
+*.la
 *.a
+*.lib
 
 # Executables
 *.exe
-
-# Debug files
-*.dSYM/
-*.su
-*.idb
-*.pdb
+*.out
+*.app
 
 # Custom
 .vscode
 .DS_Store
-push_swap_tester-main
-push_swap_tester
-checker_Mac
-push_swap
-PushSwap_tester-main
-pyviz.py
-run_MAC.sh
-tester.sh

@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 14:11:56 by achu              #+#    #+#             */
-/*   Updated: 2024/12/06 20:12:59 by achu             ###   ########.fr       */
+/*   Updated: 2025/03/10 21:11:06 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,6 @@ void	rra(t_list **a);
 void	rrb(t_list **b);
 void	rrr(t_list **a, t_list **b);
 
-void	rborrb(t_list **stack, int step);
+void	do_rborrb(t_list **stack, int step);
 
 #endif

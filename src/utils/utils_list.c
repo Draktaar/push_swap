@@ -6,11 +6,11 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 15:06:47 by achu              #+#    #+#             */
-/*   Updated: 2024/12/06 20:16:12 by achu             ###   ########.fr       */
+/*   Updated: 2025/03/10 16:46:13 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "push_swap.h"
 
 t_list	*ft_lstnew(int content)
 {

@@ -6,12 +6,13 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 15:01:59 by achu              #+#    #+#             */
-/*   Updated: 2024/12/06 20:16:04 by achu             ###   ########.fr       */
+/*   Updated: 2025/03/10 16:56:31 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "push_swap.h"
 
+// Last become First in the stack a
 void	rra(t_list **a)
 {
 	t_list	*temp;
@@ -24,6 +25,7 @@ void	rra(t_list **a)
 	write(1, "rra\n", 4);
 }
 
+// Last become First in the stack b
 void	rrb(t_list **b)
 {
 	t_list	*temp;
@@ -36,6 +38,7 @@ void	rrb(t_list **b)
 	write(1, "rrb\n", 4);
 }
 
+// Last become First in the stack a and b
 void	rrr(t_list **a, t_list **b)
 {
 	rra(a);

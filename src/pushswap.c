@@ -6,13 +6,14 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 14:35:47 by achu              #+#    #+#             */
-/*   Updated: 2024/12/06 20:17:11 by achu             ###   ########.fr       */
+/*   Updated: 2025/03/10 21:12:19 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "push_swap.h"
 
-static void	ft_initmedian(t_list **a, t_list **b)
+// Split the stack a into multiple presorted chunck
+static void	ft_divconq(t_list **a, t_list **b)
 {
 	int min;
 	int	size;
@@ -50,14 +51,14 @@ static void	ft_sort(t_list **a, t_list **b)
 	while (*b)
 	{
 		step = is_brobrr(*a, *b, min, max);
-		rborrb(b, step);
+		do_rborrb(b, step);
 		ft_blabla(a, b, &min, &max);
 	}
 }
 
 void	ft_pushswap(t_list **a, t_list **b)
 {
-	ft_initmedian(a, b);
+	ft_divconq(a, b);
 	ft_sort(a, b);
 	while (!is_sorted(*a))
 		ra(a);

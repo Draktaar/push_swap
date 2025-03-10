@@ -6,11 +6,11 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 15:54:04 by achu              #+#    #+#             */
-/*   Updated: 2024/12/06 20:16:14 by achu             ###   ########.fr       */
+/*   Updated: 2025/03/10 17:05:04 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "push_swap.h"
 
 int	is_sorted(t_list *stack)
 {

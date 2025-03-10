@@ -6,12 +6,13 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 15:01:52 by achu              #+#    #+#             */
-/*   Updated: 2024/12/06 20:16:05 by achu             ###   ########.fr       */
+/*   Updated: 2025/03/10 16:57:28 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "push_swap.h"
 
+// First and Next are swaped in the stack a
 void	sa(t_list **a)
 {
 	t_list	*swap1;
@@ -31,6 +32,7 @@ void	sa(t_list **a)
 	write(1, "sa\n", 3);
 }
 
+// First and Next are swaped in the stack b
 void	sb(t_list **b)
 {
 	t_list	*swap1;
@@ -50,6 +52,7 @@ void	sb(t_list **b)
 	write(1, "sb\n", 3);
 }
 
+// First and Next are swaped in the stack a and b
 void	ss(t_list **a, t_list **b)
 {
 	sa(a);

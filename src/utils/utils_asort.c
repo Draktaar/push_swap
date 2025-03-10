@@ -6,13 +6,16 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 13:48:43 by achu              #+#    #+#             */
-/*   Updated: 2024/12/06 20:16:07 by achu             ###   ########.fr       */
+/*   Updated: 2025/03/10 21:16:57 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "push_swap.h"
 
-static void	raorra(t_list **stack, int step)
+// Depends on the number of step to take
+// Do ra if the step are positive 
+// Do rra if the step are negative 
+static void	do_raorra(t_list **stack, int step)
 {
 	int	i;
 
@@ -101,21 +104,21 @@ void	ft_blabla(t_list **a, t_list **b, int *min, int *max)
 	{
 		i = testaroarr(*a, *min);
 		*min = (*b)->nb;
-		raorra(a, i);
+		do_raorra(a, i);
 		pa(a, b);
 	}
 	else if ((*b)->nb > *max)
 	{
 		i = testaroarr(*a, *max);
 		*max = (*b)->nb;
-		raorra(a, i);
+		do_raorra(a, i);
 		ra(a);
 		pa(a, b);
 	}
 	else
 	{
 		i = is_aroarr(*a, *b);
-		raorra(a, i);
+		do_raorra(a, i);
 		pa(a, b);		
 	}
 }

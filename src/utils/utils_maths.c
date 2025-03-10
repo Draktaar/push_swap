@@ -6,12 +6,13 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 16:28:31 by achu              #+#    #+#             */
-/*   Updated: 2024/12/06 20:16:13 by achu             ###   ########.fr       */
+/*   Updated: 2025/03/10 19:51:52 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "push_swap.h"
 
+// Return absolute value of a number
 int	ft_abs(int nb)
 {
 	if (nb < 0)
@@ -19,6 +20,7 @@ int	ft_abs(int nb)
 	return (nb);
 }
 
+// Return the comparaison of the smallest value from two numbers
 int	ft_mincmp(int a, int b)
 {
 	if (ft_abs(a) < ft_abs(b))
@@ -27,6 +29,7 @@ int	ft_mincmp(int a, int b)
 		return (b);
 }
 
+// Search throught a stack and return the smallest number
 int	get_min(t_list *stack)
 {
 	t_list	*temp;
@@ -43,6 +46,7 @@ int	get_min(t_list *stack)
 	return (min);
 }
 
+// Search throught a stack and return the biggest number
 int	get_max(t_list *stack)
 {
 	t_list	*temp;
