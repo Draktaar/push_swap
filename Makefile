@@ -6,7 +6,7 @@
 #    By: achu <achu@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/25 14:10:45 by achu              #+#    #+#              #
-#    Updated: 2025/03/10 16:45:39 by achu             ###   ########.fr        #
+#    Updated: 2025/03/11 02:16:59 by achu             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,11 +21,10 @@ SRC =	src/op/push.c \
 		src/op/swap.c \
 		src/utils/ft_atoi.c \
 		src/utils/ft_split.c \
-		src/utils/utils_asort.c \
-		src/utils/utils_bsort.c \
-		src/utils/utils_list.c \
-		src/utils/utils_maths.c \
+		src/utils/ft_lst_utils.c \
 		src/utils/utils_sort.c \
+		src/utils/utils_maths.c \
+		src/utils/utils_pushswap.c \
 		src/main.c \
 		src/mini_sort.c \
 		src/pushswap.c \

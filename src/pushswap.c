@@ -6,27 +6,79 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 14:35:47 by achu              #+#    #+#             */
-/*   Updated: 2025/03/10 21:12:19 by achu             ###   ########.fr       */
+/*   Updated: 2025/03/11 02:49:12 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+static int	ft_sum(t_list **stack, int max)
+{
+	int		pos;
+	int		neg;
+	int		result;
+	t_list	*temp;
+
+	pos = 0;
+	neg = 0;
+	temp = *stack;
+	while (temp->next != *stack)
+	{
+		if (temp->nb <= max)
+			break ; 
+		temp = temp->next;
+		pos++;
+	}
+	temp = *stack;
+	while (temp->previous != *stack)
+	{
+		if (temp->nb <= max)
+			break ; 
+		temp = temp->previous;
+		neg--;
+	}
+	result = ft_mincmp(pos, neg);
+	return (result);
+}
+
+// Depends on the number of step to take
+// Do ra if the step are positive 
+// Do rra if the step are negative 
+static void	do_raorra(t_list **a, int step)
+{
+	int	i;
+
+	i = step;
+	while (i != 0)
+	{
+		if (i < 0)
+		{
+			rra(a);
+			i++;
+		}
+		else
+		{
+			ra(a);
+			i--;
+		}
+	}
+}
+
 // Split the stack a into multiple presorted chunck
-static void	ft_divconq(t_list **a, t_list **b)
+static void	ft_divconq(t_list **a, t_list **b, int size)
 {
 	int min;
-	int	size;
+	int	chunck;
 
 	min = get_min(*a);
-	size = (ft_abs(min) + ft_abs(get_max(*a))) / 8;
+	chunck = (ft_abs(get_min(*a)) + ft_abs(get_max(*a))) / size;
 	while (*a)
 	{
-		if (!is_inchunk((*a), min + size))
-			min += size + 1;
-		if ((*a)->nb <= min + size)
+		if (!is_undermax(*a, min + chunck))
+			min += (chunck + 1);
+		if ((*a)->nb <= min + chunck)
 		{
-			if ((*a)->nb <= min + size / 2)
+			if ((*a)->nb <= min + chunck / 2)
 				pb(a, b); 
 			else
 			{
@@ -35,31 +87,23 @@ static void	ft_divconq(t_list **a, t_list **b)
 			}
 		}
 		else
-			ra(a);
+			do_raorra(a, ft_sum(a, min + chunck));
 	}
 }
 
-static void	ft_sort(t_list **a, t_list **b)
+void	ft_sort(t_list **a, t_list **b)
 {
-	int	min;
-	int	max;
-	int	step;
+	int	size;
 
-	min = (*b)->nb;
-	max = (*b)->nb;
+	size = 3;
+	if (ft_lstsize(*a) > 200)
+		size = 6;
+	ft_divconq(a, b, size);
 	pa(a, b);
 	while (*b)
 	{
-		step = is_brobrr(*a, *b, min, max);
-		do_rborrb(b, step);
-		ft_blabla(a, b, &min, &max);
+		test(a, b);
 	}
-}
-
-void	ft_pushswap(t_list **a, t_list **b)
-{
-	ft_divconq(a, b);
-	ft_sort(a, b);
-	while (!is_sorted(*a))
-		ra(a);
+	// while (!is_sorted(*a))
+	// 	ra(a);
 }

@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 14:10:38 by achu              #+#    #+#             */
-/*   Updated: 2025/03/10 17:16:34 by achu             ###   ########.fr       */
+/*   Updated: 2025/03/11 01:35:41 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,7 +124,7 @@ int	main(int argc, char **argv)
 	if (size <= 5)
 		ft_minisort(&a, &b);
 	else
-		ft_pushswap(&a, &b);
+		ft_sort(&a, &b);
 	//printlist(a);
 	ft_lstclear(&a);
 	return (0);

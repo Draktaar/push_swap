@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 11:55:51 by achu              #+#    #+#             */
-/*   Updated: 2025/03/10 16:45:57 by achu             ###   ########.fr       */
+/*   Updated: 2025/03/11 01:28:47 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ static void	ft_five(t_list **a, t_list **b)
 	pb(a, b);
 	ft_three(a);
 	pa(a, b);
-	size = is_aroarr(*a, *b);
+	size = 0;
 	while (size != 0)
 	{
 		if (size < 0)
