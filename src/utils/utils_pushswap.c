@@ -6,11 +6,26 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 15:54:04 by achu              #+#    #+#             */
-/*   Updated: 2025/03/11 02:39:28 by achu             ###   ########.fr       */
+/*   Updated: 2025/03/11 02:52:24 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+// Print the entire stack
+void	printlist(t_list *stack)
+{
+	t_list	*temp;
+
+	temp = stack;
+	while (temp->next != stack)
+	{
+		printf(" %d\n", temp->nb);
+		temp = temp->next;
+	}
+	printf(" %d\n", temp->nb);
+	printf("---\n");
+}
 
 // Return true if the entire stack is sorted
 int	is_sorted(t_list *stack)

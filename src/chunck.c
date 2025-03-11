@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pushswap.c                                         :+:      :+:    :+:   */
+/*   chunck.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 14:35:47 by achu              #+#    #+#             */
-/*   Updated: 2025/03/11 02:49:12 by achu             ###   ########.fr       */
+/*   Updated: 2025/03/11 02:54:37 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	ft_sum(t_list **stack, int max)
+static int	ft_raorra(t_list **stack, int max)
 {
 	int		pos;
 	int		neg;
@@ -65,7 +65,7 @@ static void	do_raorra(t_list **a, int step)
 }
 
 // Split the stack a into multiple presorted chunck
-static void	ft_divconq(t_list **a, t_list **b, int size)
+void	ft_divconq(t_list **a, t_list **b, int size)
 {
 	int min;
 	int	chunck;
@@ -87,23 +87,6 @@ static void	ft_divconq(t_list **a, t_list **b, int size)
 			}
 		}
 		else
-			do_raorra(a, ft_sum(a, min + chunck));
+			do_raorra(a, ft_raorra(a, min + chunck));
 	}
-}
-
-void	ft_sort(t_list **a, t_list **b)
-{
-	int	size;
-
-	size = 3;
-	if (ft_lstsize(*a) > 200)
-		size = 6;
-	ft_divconq(a, b, size);
-	pa(a, b);
-	while (*b)
-	{
-		test(a, b);
-	}
-	// while (!is_sorted(*a))
-	// 	ra(a);
 }

@@ -6,25 +6,11 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 14:10:38 by achu              #+#    #+#             */
-/*   Updated: 2025/03/11 01:35:41 by achu             ###   ########.fr       */
+/*   Updated: 2025/03/11 02:53:00 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	printlist(t_list *stack)
-{
-	t_list	*temp;
-
-	temp = stack;
-	while (temp->next != stack)
-	{
-		printf(" %d\n", temp->nb);
-		temp = temp->next;
-	}
-	printf(" %d\n", temp->nb);
-	printf("---\n");
-}
 
 //static int	is_digit(char *str)
 //{
@@ -102,6 +88,23 @@ static void	ft_test(t_list **stack, char **argv)
 		loop = loop->next;
 	loop->next = (*stack);
 	(*stack)->previous = loop;
+}
+
+static void	ft_sort(t_list **a, t_list **b)
+{
+	int	size;
+
+	size = 3;
+	if (ft_lstsize(*a) > 200)
+		size = 6;
+	ft_divconq(a, b, size);
+	pa(a, b);
+	while (*b)
+	{
+		test(a, b);
+	}
+	// while (!is_sorted(*a))
+	// 	ra(a);
 }
 
 int	main(int argc, char **argv)
