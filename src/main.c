@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 14:10:38 by achu              #+#    #+#             */
-/*   Updated: 2025/03/11 02:53:00 by achu             ###   ########.fr       */
+/*   Updated: 2025/03/11 17:26:49 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,11 +98,7 @@ static void	ft_sort(t_list **a, t_list **b)
 	if (ft_lstsize(*a) > 200)
 		size = 6;
 	ft_divconq(a, b, size);
-	pa(a, b);
-	while (*b)
-	{
-		test(a, b);
-	}
+	test(a, b);
 	// while (!is_sorted(*a))
 	// 	ra(a);
 }

@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 14:11:56 by achu              #+#    #+#             */
-/*   Updated: 2025/03/11 02:55:21 by achu             ###   ########.fr       */
+/*   Updated: 2025/03/11 18:58:06 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,9 @@ void	ft_minisort(t_list **a, t_list **b);
 /// *** Helper ***
 int		is_sorted(t_list *stack);
 int		is_valid(t_list *a, t_list *b);
-int		is_found(t_list *a, int find);
-int		is_undermax(t_list *stack, int max);
+int		ft_posfind(t_list **stack, int find);
+int		ft_negfind(t_list **stack, int find);
+int		ft_findmax(t_list **stack, int find);
 
 /// *** Operation ***
 void	sa(t_list **a);

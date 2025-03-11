@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 16:28:31 by achu              #+#    #+#             */
-/*   Updated: 2025/03/10 19:51:52 by achu             ###   ########.fr       */
+/*   Updated: 2025/03/11 15:54:55 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	ft_abs(int nb)
 	return (nb);
 }
 
-// Return the comparaison of the smallest value from two numbers
+// Return the comparaison of the smallest value from two absolute numbers
 int	ft_mincmp(int a, int b)
 {
 	if (ft_abs(a) < ft_abs(b))

@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 15:02:15 by achu              #+#    #+#             */
-/*   Updated: 2025/03/10 17:02:49 by achu             ###   ########.fr       */
+/*   Updated: 2025/03/11 15:43:12 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	pa(t_list **a, t_list **b)
 	temp->previous = (*a)->previous;
 	temp->next = *a;
 	(*a)->previous->next = temp;
-	(*a)->previous  = temp;
+	(*a)->previous = temp;
 	*a = temp;
 	write(1, "pa\n", 3);
 }

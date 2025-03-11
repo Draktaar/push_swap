@@ -1,18 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   chunck.c                                           :+:      :+:    :+:   */
+/*   ft_divconq.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 14:35:47 by achu              #+#    #+#             */
-/*   Updated: 2025/03/11 02:54:37 by achu             ###   ########.fr       */
+/*   Updated: 2025/03/11 17:18:49 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	ft_raorra(t_list **stack, int max)
+// Return true if the nb from a stack is still under a max value
+// Return false if no more nb can be found under the threshold
+static int	is_undermax(t_list *stack, int max)
+{
+	t_list	*temp;
+
+	temp = stack;
+	while (temp->next != stack)
+	{
+		if (temp->nb <= max)
+			return (1);
+		temp = temp->next;
+	}
+	return (0);
+}
+
+static int	ft_sum_raorra(t_list **stack, int max)
 {
 	int		pos;
 	int		neg;
@@ -25,7 +41,7 @@ static int	ft_raorra(t_list **stack, int max)
 	while (temp->next != *stack)
 	{
 		if (temp->nb <= max)
-			break ; 
+			break ;
 		temp = temp->next;
 		pos++;
 	}
@@ -33,7 +49,7 @@ static int	ft_raorra(t_list **stack, int max)
 	while (temp->previous != *stack)
 	{
 		if (temp->nb <= max)
-			break ; 
+			break ;
 		temp = temp->previous;
 		neg--;
 	}
@@ -67,7 +83,7 @@ static void	do_raorra(t_list **a, int step)
 // Split the stack a into multiple presorted chunck
 void	ft_divconq(t_list **a, t_list **b, int size)
 {
-	int min;
+	int	min;
 	int	chunck;
 
 	min = get_min(*a);
@@ -79,7 +95,7 @@ void	ft_divconq(t_list **a, t_list **b, int size)
 		if ((*a)->nb <= min + chunck)
 		{
 			if ((*a)->nb <= min + chunck / 2)
-				pb(a, b); 
+				pb(a, b);
 			else
 			{
 				pb(a, b);
@@ -87,6 +103,6 @@ void	ft_divconq(t_list **a, t_list **b, int size)
 			}
 		}
 		else
-			do_raorra(a, ft_raorra(a, min + chunck));
+			do_raorra(a, ft_sum_raorra(a, min + chunck));
 	}
 }

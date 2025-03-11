@@ -6,28 +6,28 @@
 #    By: achu <achu@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/25 14:10:45 by achu              #+#    #+#              #
-#    Updated: 2025/03/11 02:56:36 by achu             ###   ########.fr        #
+#    Updated: 2025/03/11 17:13:27 by achu             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra
 NAME = push_swap
 INCDIR = includes
 
 SRC =	src/op/push.c \
+		src/op/swap.c \
 		src/op/rotate.c \
 		src/op/rrotate.c \
-		src/op/swap.c \
 		src/utils/ft_atoi.c \
 		src/utils/ft_split.c \
-		src/utils/ft_lst_utils.c \
+		src/utils/ft_linklst.c \
+		src/utils/utils_sort.c \
 		src/utils/utils_maths.c \
-		src/utils/utils_pushswap.c \
+		src/ft_divconq.c \
+		src/ft_mini_sort.c \
+		src/ft_sort.c \
 		src/main.c \
-		src/mini_sort.c \
-		src/chunck.c \
-		src/sort.c \
 
 OBJS = $(SRC:.c=.o)
 
