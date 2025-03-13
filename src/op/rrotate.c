@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 15:01:59 by achu              #+#    #+#             */
-/*   Updated: 2025/03/10 16:56:31 by achu             ###   ########.fr       */
+/*   Updated: 2025/03/13 20:24:25 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,16 @@ void	rrr(t_list **a, t_list **b)
 	rra(a);
 	rrb(b);
 	write(1, "rrr\n", 4);
+}
+
+// Fake reverse rotate operator to preview step
+void	rrt(t_list **stack)
+{
+	t_list	*temp;
+
+	if (!*stack)
+		return ;
+	temp = *stack;
+	temp = temp->previous;
+	*stack = temp;
 }

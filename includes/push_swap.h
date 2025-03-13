@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 14:11:56 by achu              #+#    #+#             */
-/*   Updated: 2025/03/13 02:13:54 by achu             ###   ########.fr       */
+/*   Updated: 2025/03/13 20:36:33 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,23 +35,19 @@ void	ft_lstadd_back(t_list **lst, t_list *new);
 int		ft_lstsize(t_list *lst);
 void	ft_lstclear(t_list **lst);
 
-/// *** Maths ***
-int		ft_abs(int nb);
-int		ft_mincmp(int a, int b);
-int		get_min(t_list *stack);
-int		get_max(t_list *stack);
-
 /// *** Sorting ***
-void	test(t_list **a, t_list **b);
+void	ft_sort(t_list **a, t_list **b);
 void	ft_divconq(t_list **a, t_list **b, int size);
 void	ft_minisort(t_list **a, t_list **b);
 
 /// *** Helper ***
+void	printlist(t_list *stack);
+int		ft_abs(int nb);
+int		ft_mincmp(int a, int b);
+int		get_min(t_list *stack);
+int		get_max(t_list *stack);
 int		is_sorted(t_list *stack);
-int		is_valid(t_list *a, t_list *b);
-int		ft_posfind(t_list *stack, int find);
-int		ft_negfind(t_list *stack, int find);
-int		ft_finder(t_list *stack, int find);
+int		ft_findstep(t_list *stack, int find);
 
 /// *** Operation ***
 void	sa(t_list **a);
@@ -62,11 +58,10 @@ void	pb(t_list **a, t_list **b);
 void	ra(t_list **a);
 void	rb(t_list **b);
 void	rr(t_list **a, t_list **b);
+void	rt(t_list **stack);
 void	rra(t_list **a);
 void	rrb(t_list **b);
 void	rrr(t_list **a, t_list **b);
-
-/// *** Debug ***
-void	printlist(t_list *stack);
+void	rrt(t_list **stack);
 
 #endif

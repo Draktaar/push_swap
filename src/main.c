@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 14:10:38 by achu              #+#    #+#             */
-/*   Updated: 2025/03/11 17:26:49 by achu             ###   ########.fr       */
+/*   Updated: 2025/03/13 20:38:35 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,19 +90,6 @@ static void	ft_test(t_list **stack, char **argv)
 	(*stack)->previous = loop;
 }
 
-static void	ft_sort(t_list **a, t_list **b)
-{
-	int	size;
-
-	size = 3;
-	if (ft_lstsize(*a) > 200)
-		size = 6;
-	ft_divconq(a, b, size);
-	test(a, b);
-	// while (!is_sorted(*a))
-	// 	ra(a);
-}
-
 int	main(int argc, char **argv)
 {
 	int		size;
@@ -124,7 +111,6 @@ int	main(int argc, char **argv)
 		ft_minisort(&a, &b);
 	else
 		ft_sort(&a, &b);
-	//printlist(a);
 	ft_lstclear(&a);
 	return (0);
 }

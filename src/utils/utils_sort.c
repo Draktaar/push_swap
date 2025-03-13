@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 15:54:04 by achu              #+#    #+#             */
-/*   Updated: 2025/03/13 02:13:42 by achu             ###   ########.fr       */
+/*   Updated: 2025/03/13 20:35:14 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	is_sorted(t_list *stack)
 }
 
 // Search form left to right of stack a number, and return the number of step 
-int	ft_posfind(t_list *stack, int find)
+static int	ft_posstep(t_list *stack, int find)
 {
 	int		step;
 	t_list	*temp;
@@ -61,7 +61,7 @@ int	ft_posfind(t_list *stack, int find)
 }
 
 // Search form right to left of stack a number, and return the number of step 
-int	ft_negfind(t_list *stack, int find)
+static int	ft_negstep(t_list *stack, int find)
 {
 	int		step;
 	t_list	*temp;
@@ -79,14 +79,14 @@ int	ft_negfind(t_list *stack, int find)
 }
 
 // Return the smallest step to take to find that number
-int	ft_finder(t_list *stack, int find)
+int	ft_findstep(t_list *stack, int find)
 {
 	int	pos;
 	int	neg;
 	int	step;
 
-	pos = ft_posfind(stack, find);
-	neg = ft_negfind(stack, find);
+	pos = ft_posstep(stack, find);
+	neg = ft_negstep(stack, find);
 	step = ft_mincmp(pos, neg);
 	return (step);
 }
