@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 14:26:14 by achu              #+#    #+#             */
-/*   Updated: 2025/03/13 02:18:14 by achu             ###   ########.fr       */
+/*   Updated: 2025/03/13 02:21:50 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ static void	do_rborrb(t_list **b, int step)
 
 void	test(t_list **a, t_list **b)
 {
+	do_rborrb(b, ft_finder(*b, get_max(*b)));
+	pa(a, b);
 	while (*b)
 	{
 		while ((*a)->previous->nb < get_max(*a) && (*a)->previous->nb > get_max(*b))
