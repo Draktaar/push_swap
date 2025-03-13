@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 15:54:04 by achu              #+#    #+#             */
-/*   Updated: 2025/03/11 18:57:19 by achu             ###   ########.fr       */
+/*   Updated: 2025/03/13 02:13:42 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,23 +42,15 @@ int	is_sorted(t_list *stack)
 	return (1);
 }
 
-// Return true if the first from stack b is valid to be placed first of stack a
-int	is_valid(t_list *a, t_list *b)
-{
-	if (a->previous->nb > b->nb && b->nb < a->nb)
-		return (1);
-	return (0);
-}
-
 // Search form left to right of stack a number, and return the number of step 
-int	ft_posfind(t_list **stack, int find)
+int	ft_posfind(t_list *stack, int find)
 {
 	int		step;
 	t_list	*temp;
 
 	step = 0;
-	temp = *stack;
-	while (temp->next != *stack)
+	temp = stack;
+	while (temp->next != stack)
 	{
 		if (temp->nb == find)
 			return (step);
@@ -69,14 +61,14 @@ int	ft_posfind(t_list **stack, int find)
 }
 
 // Search form right to left of stack a number, and return the number of step 
-int	ft_negfind(t_list **stack, int find)
+int	ft_negfind(t_list *stack, int find)
 {
 	int		step;
 	t_list	*temp;
 
 	step = 0;
-	temp = *stack;
-	while (temp->previous != *stack)
+	temp = stack;
+	while (temp->previous != stack)
 	{
 		if (temp->nb == find)
 			return (step);
@@ -87,7 +79,7 @@ int	ft_negfind(t_list **stack, int find)
 }
 
 // Return the smallest step to take to find that number
-int	ft_findmax(t_list **stack, int find)
+int	ft_finder(t_list *stack, int find)
 {
 	int	pos;
 	int	neg;

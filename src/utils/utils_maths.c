@@ -36,8 +36,8 @@ int	get_min(t_list *stack)
 	int		min;
 
 	min = stack->nb;
-	temp = stack;
-	while (temp->next != stack)
+	temp = stack->next;
+	while (temp != stack)
 	{
 		if (temp->nb < min)
 			min = temp->nb;
@@ -53,8 +53,8 @@ int	get_max(t_list *stack)
 	int		max;
 
 	max = stack->nb;
-	temp = stack;
-	while (temp->next != stack)
+	temp = stack->next;
+	while (temp != stack)
 	{
 		if (temp->nb > max)
 			max = temp->nb;
