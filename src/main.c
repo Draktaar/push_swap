@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 14:10:38 by achu              #+#    #+#             */
-/*   Updated: 2025/03/13 20:38:35 by achu             ###   ########.fr       */
+/*   Updated: 2025/03/14 17:02:00 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,8 +100,8 @@ int	main(int argc, char **argv)
 	b = NULL;
 	(void)argc;
 	argv++;
-	// if (argc != 2 || !argv[1])
-	// 	return (write(1, "Error\n", 6), 1);
+	if (argc != 2 || !argv[1])
+		return (write(1, "Error\n", 6), 1);
 	//ft_init(&a, argv[1]);
 	ft_test(&a, argv);
 	if (!a)

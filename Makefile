@@ -6,7 +6,7 @@
 #    By: achu <achu@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/25 14:10:45 by achu              #+#    #+#              #
-#    Updated: 2025/03/14 02:21:43 by achu             ###   ########.fr        #
+#    Updated: 2025/03/14 17:01:36 by achu             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@ SRC =	src/op/push.c \
 		src/ft_divconq.c \
 		src/ft_mini_sort.c \
 		src/ft_sort.c \
+		src/init.c \
 		src/main.c \
 
 OBJS = $(SRC:.c=.o)
