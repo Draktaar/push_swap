@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 14:26:14 by achu              #+#    #+#             */
-/*   Updated: 2025/03/13 20:34:39 by achu             ###   ########.fr       */
+/*   Updated: 2025/03/14 02:39:03 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,12 +89,13 @@ static void	do_rborrb(t_list **b, int step)
 void	ft_sort(t_list **a, t_list **b)
 {
 	int	size;
+	int limit = 150;
 
 	size = 3;
 	if (ft_lstsize(*a) > 200)
 		size = 6;
 	ft_divconq(a, b, size);
-	do_rborrb(b, ft_findstep(*b, get_max(*b)));
+	do_rborrb(b, ft_findmax(*b));
 	pa(a, b);
 	while (*b)
 	{
@@ -106,6 +107,6 @@ void	ft_sort(t_list **a, t_list **b)
 		if ((*b) && (*a)->nb < get_max(*b))
 			ra(a);
 	}
-	while (!is_sorted(*a))
+	while (!is_sorted(*a) && limit--)
 		rra(a);
 }

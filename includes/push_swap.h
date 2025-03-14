@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 14:11:56 by achu              #+#    #+#             */
-/*   Updated: 2025/03/13 20:36:33 by achu             ###   ########.fr       */
+/*   Updated: 2025/03/14 02:37:25 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int		ft_mincmp(int a, int b);
 int		get_min(t_list *stack);
 int		get_max(t_list *stack);
 int		is_sorted(t_list *stack);
-int		ft_findstep(t_list *stack, int find);
+int		ft_findmax(t_list *stack);
 
 /// *** Operation ***
 void	sa(t_list **a);
