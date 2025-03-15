@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 16:56:38 by achu              #+#    #+#             */
-/*   Updated: 2025/03/15 17:41:10 by achu             ###   ########.fr       */
+/*   Updated: 2025/03/15 18:33:28 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,13 @@ int	is_num(char *str)
 
 	i = 0;
 	len = ft_strlen(str);
+	while (str[i] == '+' || str[i] == '-')
+		i++;
+	if (i >= 2)
+		return (0);
 	while (str[i])
 	{
-		if (!is_digit(str[i]) && str[i] != '+' && str[i] != '-')
+		if (!is_digit(str[i]))
 			return (0);
 		i++;
 	}
