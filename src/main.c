@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 14:10:38 by achu              #+#    #+#             */
-/*   Updated: 2025/03/15 15:08:33 by achu             ###   ########.fr       */
+/*   Updated: 2025/03/15 17:55:08 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,8 @@ int	main(int argc, char **argv)
 
 	a = NULL;
 	b = NULL;
-	ft_init(&a, argc, argv);
-	if (!a)
-		return (ft_stack_clear(&a), 0);
+	if (!ft_init(&a, argc, argv))
+		return (ft_stack_clear(&a), error("Error"), 1);
 	size = ft_stack_size(a);
 	if (size <= 5)
 		ft_minisort(&a, &b);

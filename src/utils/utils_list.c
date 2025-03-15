@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 15:06:47 by achu              #+#    #+#             */
-/*   Updated: 2025/03/15 15:35:14 by achu             ###   ########.fr       */
+/*   Updated: 2025/03/15 17:12:38 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ t_list	*ft_stack_new(int content)
 	if (!list)
 		return (NULL);
 	list->nb = content;
-	list->previous = 0;
-	list->next = 0;
+	list->previous = NULL;
+	list->next = NULL;
 	return (list);
 }
 
@@ -31,12 +31,12 @@ void	ft_stack_addback(t_list **lst, t_list *new)
 
 	if (!lst || !new)
 		return ;
-	list = *lst;
 	if (!*lst)
 	{
 		*lst = new;
 		return ;
 	}
+	list = *lst;
 	while (list->next)
 		list = list->next;
 	list->next = new;

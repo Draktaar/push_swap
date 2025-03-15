@@ -6,18 +6,18 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 14:11:56 by achu              #+#    #+#             */
-/*   Updated: 2025/03/15 15:34:55 by achu             ###   ########.fr       */
+/*   Updated: 2025/03/15 17:05:03 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# define INTMAX = 2147483647
+# define MAXINT "2147483647"
+# define MININT "-2147483648"
 
 # include <unistd.h>
 # include <stdlib.h>
-# include <stdio.h>
 # include "libft.h"
 # include "ft_printf.h"
 
@@ -34,10 +34,9 @@ int		ft_atoi(const char *str);
 char	**ft_split(const char *str, char set);
 void	ft_clearsplit(char **split);
 
-/// *** Linked List ***
+/// *** Double Circular Linked List ***
 t_list	*ft_stack_new(int content);
 void	ft_stack_addback(t_list **lst, t_list *new);
-void	ft_lstadd_previous(t_list **lst, t_list *new);
 int		ft_stack_size(t_list *lst);
 void	ft_stack_clear(t_list **lst);
 
@@ -48,11 +47,11 @@ void	ft_minisort(t_list **a, t_list **b);
 
 /// *** Helper ***
 void	printlist(t_list *stack);
+int		is_sorted(t_list *stack);
 int		ft_abs(int nb);
 int		ft_mincmp(int a, int b);
 int		get_min(t_list *stack);
 int		get_max(t_list *stack);
-int		is_sorted(t_list *stack);
 int		ft_findmax(t_list *stack);
 
 /// *** Operation ***

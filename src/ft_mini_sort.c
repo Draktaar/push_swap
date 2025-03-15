@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 11:55:51 by achu              #+#    #+#             */
-/*   Updated: 2025/03/15 14:53:59 by achu             ###   ########.fr       */
+/*   Updated: 2025/03/15 15:51:12 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,6 @@ void	ft_minisort(t_list **a, t_list **b)
 	int	size;
 
 	size = ft_stack_size(*a);
-	printf("%i", size);
 	if (!is_sorted(*a))
 	{
 		if (size == 2)

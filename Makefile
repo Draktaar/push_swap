@@ -6,12 +6,12 @@
 #    By: achu <achu@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/25 14:10:45 by achu              #+#    #+#              #
-#    Updated: 2025/03/15 15:39:47 by achu             ###   ########.fr        #
+#    Updated: 2025/03/15 17:22:11 by achu             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
-CFLAGS = -Wall -Wextra
+CFLAGS = -Wall -Wextra -g3
 NAME = push_swap
 
 INCDIR = includes
@@ -23,13 +23,14 @@ SRC =	src/op/push.c \
 		src/op/swap.c \
 		src/op/rotate.c \
 		src/op/rrotate.c \
+		src/utils/utils_init.c \
 		src/utils/utils_list.c \
 		src/utils/utils_sort.c \
 		src/utils/utils_stack.c \
-		src/ft_divconq.c \
-		src/ft_mini_sort.c \
-		src/ft_sort.c \
 		src/init.c \
+		src/ft_divconq.c \
+		src/ft_sort.c \
+		src/ft_mini_sort.c \
 		src/main.c \
 
 OBJS = $(SRC:.c=.o)
@@ -39,7 +40,7 @@ all: $(NAME)
 $(NAME): 	$(OBJS)
 	$(MAKE) --no-print-directory -C $(LIBFT)
 	$(MAKE) --no-print-directory -C $(PRINTF)
-	$(CC) $(CFLAGS) $(OBJS) $(LIBFT)/libft.a -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) $(LIBFT)/libft.a $(PRINTF)/printf.a -o $(NAME)
 	
 %.o: %.c
 	$(CC) $(CFLAGS) -I $(INCDIR) -I $(LIBFT) -I $(PRINTF) -c $< -o $@
