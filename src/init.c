@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 17:01:43 by achu              #+#    #+#             */
-/*   Updated: 2025/03/15 18:14:10 by achu             ###   ########.fr       */
+/*   Updated: 2025/03/15 18:57:46 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static int	ft_parse_stack(t_list **stack, char **tab)
 {
 	t_list	*temp;
 	t_list	*prev;
-	int	i;
+	int		i;
 
 	i = 0;
 	prev = NULL;

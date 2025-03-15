@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 16:56:38 by achu              #+#    #+#             */
-/*   Updated: 2025/03/15 18:33:28 by achu             ###   ########.fr       */
+/*   Updated: 2025/03/15 18:57:20 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,14 +54,14 @@ int	is_limit(char *str)
 	return (0);
 }
 
-int  is_dup(t_list *stack, int dup)
+int	is_dup(t_list *stack, int dup)
 {
 	t_list	*temp;
 
 	if (!stack)
 		return (0);
 	temp = stack;
-    while (temp)
+	while (temp)
 	{
 		if (temp->nb == dup)
 			return (1);
