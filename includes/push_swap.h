@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 14:11:56 by achu              #+#    #+#             */
-/*   Updated: 2025/03/14 02:37:25 by achu             ###   ########.fr       */
+/*   Updated: 2025/03/14 20:27:10 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ typedef struct s_list
 char	**ft_split(const char *str, char set);
 void	ft_clearsplit(char **split);
 int		ft_atoi(const char *str);
+void	ft_test(t_list **stack, char **av);
 
 /// *** Linked List ***
 t_list	*ft_lstnew(int content);
