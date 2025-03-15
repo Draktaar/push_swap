@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 15:54:04 by achu              #+#    #+#             */
-/*   Updated: 2025/03/15 17:37:57 by achu             ###   ########.fr       */
+/*   Updated: 2025/03/15 18:35:17 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,16 @@ void	printlist(t_list *stack)
 {
 	t_list	*temp;
 
-	if (!stack);
+	if (!stack)
 		return ;
 	temp = stack;
 	while (temp->next != stack)
 	{
-		printf(" %d\n", temp->nb);
+		ft_printf(" %d\n", temp->nb);
 		temp = temp->next;
 	}
-	printf(" %d\n", temp->nb);
-	printf("---\n");
+	ft_printf(" %d\n", temp->nb);
+	ft_printf("---\n");
 }
 
 // Return true if the entire stack is sorted
