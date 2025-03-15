@@ -6,11 +6,34 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 11:55:51 by achu              #+#    #+#             */
-/*   Updated: 2025/03/15 15:51:12 by achu             ###   ########.fr       */
+/*   Updated: 2025/03/15 18:50:28 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+// Depends on the number of step to take
+// Do rb if the step are positive 
+// Do rrb if the step are negative 
+static void	do_raorra(t_list **b, int step)
+{
+	int	i;
+
+	i = step;
+	while (i != 0)
+	{
+		if (i < 0)
+		{
+			rra(b);
+			i++;
+		}
+		else
+		{
+			ra(b);
+			i--;
+		}
+	}
+}
 
 static void	ft_three(t_list **stack)
 {
@@ -53,33 +76,16 @@ static void	ft_four(t_list **a, t_list **b)
 
 static void	ft_five(t_list **a, t_list **b)
 {
-	int	min;
-	int size;
-
-	min = get_min(*a);
+	do_raorra(a, ft_findmax(*a));
 	pb(a, b);
-	while ((*a)->nb != min)
-		ra(a);
+	do_raorra(a, ft_findmax(*a));
 	pb(a, b);
 	ft_three(a);
+	sb(b);
 	pa(a, b);
-	size = 0;
-	while (size != 0)
-	{
-		if (size < 0)
-		{
-			rra(a);
-			size++;
-		}
-		else
-		{
-			ra(a);
-			size--;
-		}
-	}
 	pa(a, b);
 	while (!is_sorted(*a))
-		ra(a);
+		rra(a);
 }
 
 void	ft_minisort(t_list **a, t_list **b)
