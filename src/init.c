@@ -6,43 +6,28 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 17:01:43 by achu              #+#    #+#             */
-/*   Updated: 2025/03/15 10:06:26 by achu             ###   ########.fr       */
+/*   Updated: 2025/03/15 15:37:45 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-//static int	is_digit(char *str)
-//{
-//	int		i;
-//	char	*max;
-//	int		num;
+static int	is_num(char *str)
+{
+	int		i;
+	int		num;
 
-//	i = 0;
-//	max = "2147483647";
-//	while (str[i])
-//	{
-//		if (str[i] == '-')
-//			max = "-2147483648";
-//		if (!('0' <= str[i] && str[i] <= '9') || !(str[i] == '-'))
-//			return (0);
-//		i++;
-//	}
-//	while (*str && i > 10)
-//	{
-//		if (*str > *max)
-//			return (0);
-//	}
-//	num = ft_atoi(str);
-//	return (num);
-//}
+	i = 0;
+	num = ft_atoi(str);
+	return (num);
+}
 
-static int  is_dup()
+static int  is_dup(t_list **stack)
 {
     
 }
 
-static void	ft_init(t_list **stack, int ac, char **av)
+static void	ft_init_split(t_list **stack, char *str)
 {
 	t_list	*temp;
 	t_list	*prev;
@@ -52,15 +37,15 @@ static void	ft_init(t_list **stack, int ac, char **av)
 
 	i = 0;
 	prev = NULL;
-	tab = ft_split(av[1], ' ');
+	tab = ft_split(str, ' ');
 	if (!tab)
 		return ;
-	while (tab[i] != 0)
+	while (tab[i])
 	{
-		temp = ft_lstnew(ft_atoi(tab[i]));
+		temp = ft_stack_new(ft_atoi(tab[i]));
 		temp->previous = prev;
 		prev = temp;
-		ft_lstadd_back(stack, temp);
+		ft_stack_addback(stack, temp);
 		i++;
 	}
 	loop = *stack;
@@ -68,24 +53,24 @@ static void	ft_init(t_list **stack, int ac, char **av)
 		loop = loop->next;
 	loop->next = (*stack);
 	(*stack)->previous = loop;
-	ft_clearsplit(tab);
+	ft_clear_dbl(tab);
 }
 
-void	ft_test(t_list **stack, char **av)
+static void	ft_init_argv(t_list **stack, char **argv)
 {
-	t_list	*loop;
 	t_list	*temp;
+	t_list	*loop;
 	t_list	*prev;
 	int	i;
 
-	i = 0;
+	i = 1;
 	prev = NULL;
-	while (av[i])
+	while (argv[i])
 	{
-		temp = ft_lstnew(ft_atoi(av[i]));
+		temp = ft_stack_new(ft_atoi(argv[i]));
 		temp->previous = prev;
 		prev = temp;
-		ft_lstadd_back(stack, temp);
+		ft_stack_addback(stack, temp);
 		i++;
 	}
 	loop = *stack;
@@ -93,4 +78,15 @@ void	ft_test(t_list **stack, char **av)
 		loop = loop->next;
 	loop->next = (*stack);
 	(*stack)->previous = loop;
+}
+
+int	ft_init(t_list **stack, int ac, char **av)
+{
+	if (ac <= 1)
+		return (0);
+	else if (ac == 2)
+		ft_init_split(stack, av[1]);
+	else
+		ft_init_argv(stack, av);
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 14:26:14 by achu              #+#    #+#             */
-/*   Updated: 2025/03/14 02:39:03 by achu             ###   ########.fr       */
+/*   Updated: 2025/03/15 14:54:11 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ void	ft_sort(t_list **a, t_list **b)
 	int limit = 150;
 
 	size = 3;
-	if (ft_lstsize(*a) > 200)
+	if (ft_stack_size(*a) > 200)
 		size = 6;
 	ft_divconq(a, b, size);
 	do_rborrb(b, ft_findmax(*b));

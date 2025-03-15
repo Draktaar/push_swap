@@ -1,33 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/25 14:10:38 by achu              #+#    #+#             */
-/*   Updated: 2025/03/15 15:08:33 by achu             ###   ########.fr       */
+/*   Created: 2024/11/05 13:15:43 by achu              #+#    #+#             */
+/*   Updated: 2024/12/12 13:26:39 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include <string.h>
 
-int	main(int argc, char **argv)
+int	ft_strncmp(const char *s1, const char *s2, size_t len)
 {
-	int		size;
-	t_list	*a;
-	t_list	*b;
+	size_t	i;
 
-	a = NULL;
-	b = NULL;
-	ft_init(&a, argc, argv);
-	if (!a)
-		return (ft_stack_clear(&a), 0);
-	size = ft_stack_size(a);
-	if (size <= 5)
-		ft_minisort(&a, &b);
-	else
-		ft_sort(&a, &b);
-	ft_stack_clear(&a);
+	i = 0;
+	while (s1[i] || s2[i])
+	{
+		if (i >= len)
+			return (0);
+		if (s1[i] != s2[i])
+			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+		i++;
+	}
 	return (0);
 }

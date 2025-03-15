@@ -1,33 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/25 14:10:38 by achu              #+#    #+#             */
-/*   Updated: 2025/03/15 15:08:33 by achu             ###   ########.fr       */
+/*   Created: 2024/11/05 12:56:31 by achu              #+#    #+#             */
+/*   Updated: 2024/12/12 13:26:23 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include <unistd.h>
 
-int	main(int argc, char **argv)
+char	*ft_strchr(const char *str, int find)
 {
-	int		size;
-	t_list	*a;
-	t_list	*b;
+	unsigned char	fd;
 
-	a = NULL;
-	b = NULL;
-	ft_init(&a, argc, argv);
-	if (!a)
-		return (ft_stack_clear(&a), 0);
-	size = ft_stack_size(a);
-	if (size <= 5)
-		ft_minisort(&a, &b);
-	else
-		ft_sort(&a, &b);
-	ft_stack_clear(&a);
-	return (0);
+	fd = (unsigned char)find;
+	while (*str)
+	{
+		if ((unsigned char)*str == fd)
+			return ((char *)str);
+		str++;
+	}
+	if (fd == 0)
+		return ((char *)str);
+	return (NULL);
 }

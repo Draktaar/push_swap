@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_linklst.c                                       :+:      :+:    :+:   */
+/*   utils_list.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 15:06:47 by achu              #+#    #+#             */
-/*   Updated: 2025/03/11 15:40:40 by achu             ###   ########.fr       */
+/*   Updated: 2025/03/15 15:35:14 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list	*ft_lstnew(int content)
+t_list	*ft_stack_new(int content)
 {
 	t_list	*list;
 
@@ -25,7 +25,7 @@ t_list	*ft_lstnew(int content)
 	return (list);
 }
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+void	ft_stack_addback(t_list **lst, t_list *new)
 {
 	t_list	*list;
 
@@ -42,7 +42,7 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	list->next = new;
 }
 
-int	ft_lstsize(t_list *lst)
+int	ft_stack_size(t_list *lst)
 {
 	int		i;
 	t_list	*temp;
@@ -57,7 +57,7 @@ int	ft_lstsize(t_list *lst)
 	return (i);
 }
 
-void	ft_lstclear(t_list **lst)
+void	ft_stack_clear(t_list **lst)
 {
 	t_list	*list;
 	t_list	*temp;

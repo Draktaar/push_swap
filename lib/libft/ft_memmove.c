@@ -1,33 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/25 14:10:38 by achu              #+#    #+#             */
-/*   Updated: 2025/03/15 15:08:33 by achu             ###   ########.fr       */
+/*   Created: 2024/11/05 16:23:01 by achu              #+#    #+#             */
+/*   Updated: 2024/12/12 13:37:44 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+void	*ft_memmove(void *dst, const void *src, size_t size)
 {
-	int		size;
-	t_list	*a;
-	t_list	*b;
+	size_t				i;
+	unsigned char		*dest;
+	const unsigned char	*source;
 
-	a = NULL;
-	b = NULL;
-	ft_init(&a, argc, argv);
-	if (!a)
-		return (ft_stack_clear(&a), 0);
-	size = ft_stack_size(a);
-	if (size <= 5)
-		ft_minisort(&a, &b);
+	i = 0;
+	dest = (unsigned char *)dst;
+	source = (const unsigned char *)src;
+	if (dest < source)
+		return (ft_memcpy(dst, src, size));
 	else
-		ft_sort(&a, &b);
-	ft_stack_clear(&a);
-	return (0);
+	{
+		while (i < size)
+		{
+			dest[size - i - 1] = source[size - i - 1];
+			i++;
+		}
+		return (dest);
+	}
 }

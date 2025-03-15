@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: achu <marvin@42.fr>                        +#+  +:+       +#+        */
+/*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 17:36:00 by achu              #+#    #+#             */
-/*   Updated: 2024/11/06 17:36:01 by achu             ###   ########.fr       */
+/*   Updated: 2024/12/18 19:23:53 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static int	ft_countword(const char *str, char set)
 	return (count);
 }
 
-static char	*ft_alstr(const char *src, char set)
+static char	*ft_stralloc(const char *src, char set)
 {
 	int		i;
 	int		len;
@@ -58,7 +58,7 @@ static char	*ft_alstr(const char *src, char set)
 	return (str);
 }
 
-void	ft_clearsplit(char **split)
+static void	clear_map(char **split)
 {
 	int	i;
 
@@ -86,9 +86,9 @@ char	**ft_split(const char *str, char set)
 			str++;
 		if (*str)
 		{
-			split[i] = ft_alstr(str, set);
+			split[i] = ft_stralloc(str, set);
 			if (!split[i])
-				return (ft_clearsplit(split), NULL);
+				return (clear_map(split), NULL);
 			i++;
 		}
 		while (*str && !ft_ischarset(*str, set))
