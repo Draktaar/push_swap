@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 14:11:56 by achu              #+#    #+#             */
-/*   Updated: 2025/03/15 17:05:03 by achu             ###   ########.fr       */
+/*   Updated: 2025/03/16 17:01:09 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,6 @@ typedef struct s_list
 
 /// *** Initialize ***
 int		ft_init(t_list **stack, int ac, char **av);
-int		ft_atoi(const char *str);
-char	**ft_split(const char *str, char set);
-void	ft_clearsplit(char **split);
 
 /// *** Double Circular Linked List ***
 t_list	*ft_stack_new(int content);
@@ -55,18 +52,16 @@ int		get_max(t_list *stack);
 int		ft_findmax(t_list *stack);
 
 /// *** Operation ***
-void	sa(t_list **a);
-void	sb(t_list **b);
-void	ss(t_list **a, t_list **b);
-void	pa(t_list **a, t_list **b);
-void	pb(t_list **a, t_list **b);
-void	ra(t_list **a);
-void	rb(t_list **b);
-void	rr(t_list **a, t_list **b);
-void	rt(t_list **stack);
-void	rra(t_list **a);
-void	rrb(t_list **b);
-void	rrr(t_list **a, t_list **b);
-void	rrt(t_list **stack);
+void	sa(t_list **a, int is_w);
+void	sb(t_list **b, int is_w);
+void	ss(t_list **a, t_list **b, int is_w);
+void	pa(t_list **a, t_list **b, int is_w);
+void	pb(t_list **a, t_list **b, int is_w);
+void	ra(t_list **a, int is_w);
+void	rb(t_list **b, int is_w);
+void	rr(t_list **a, t_list **b, int is_w);
+void	rra(t_list **a, int is_w);
+void	rrb(t_list **b, int is_w);
+void	rrr(t_list **a, t_list **b, int is_w);
 
 #endif

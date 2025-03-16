@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 15:54:04 by achu              #+#    #+#             */
-/*   Updated: 2025/03/15 18:35:17 by achu             ###   ########.fr       */
+/*   Updated: 2025/03/16 17:13:20 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ int	is_sorted(t_list *stack)
 {
 	t_list	*temp;
 
+	if (!stack)
+		return (0);
 	temp = stack;
 	while (temp->next != stack)
 	{

@@ -15,10 +15,8 @@
 int	is_num(char *str)
 {
 	int	i;
-	int	len;
 
 	i = 0;
-	len = ft_strlen(str);
 	while (str[i] == '+' || str[i] == '-')
 		i++;
 	if (i >= 2)
@@ -34,21 +32,19 @@ int	is_num(char *str)
 
 int	is_limit(char *str)
 {
-	int	i;
 	int	len;
 
-	i = 0;
 	len = ft_strlen(str);
-	if (len > 11)
+	if (len > 11 || (len == 11 &&  str[0] != '-'))
 		return (1);
-	else if (len == 10)
-	{
-		if (ft_strncmp(str, MAXINT, len) > 0)
-			return (1);
-	}
 	else if (len == 11)
 	{
 		if (ft_strncmp(str, MININT, len) > 0)
+			return (1);
+	}
+	else if (len == 10)
+	{
+		if (ft_strncmp(str, MAXINT, len) > 0)
 			return (1);
 	}
 	return (0);

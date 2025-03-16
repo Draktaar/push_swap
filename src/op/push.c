@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 15:02:15 by achu              #+#    #+#             */
-/*   Updated: 2025/03/11 15:43:12 by achu             ###   ########.fr       */
+/*   Updated: 2025/03/16 17:04:56 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 // Setup the First of stack to remove all link
 // if the last of stack, NULL all link
 // else relink his previous neighbour
-static void	is_setup(t_list **stack, t_list *temp)
+static void	ft_setup(t_list **stack, t_list *temp)
 {
 	if ((*stack)->next == *stack)
 	{
@@ -32,20 +32,21 @@ static void	is_setup(t_list **stack, t_list *temp)
 }
 
 // First of stack b in send to be First of stack a
-void	pa(t_list **a, t_list **b)
+void	pa(t_list **a, t_list **b, int is_w)
 {
 	t_list	*temp;
 
 	if (!*b)
 		return ;
 	temp = *b;
-	is_setup(b, temp);
+	ft_setup(b, temp);
 	if (!a || !*a)
 	{
 		*a = temp;
 		(*a)->next = temp;
 		(*a)->previous = temp;
-		write(1, "pa\n", 3);
+		if (is_w)
+			write(1, "pa\n", 3);
 		return ;
 	}
 	temp->previous = (*a)->previous;
@@ -53,24 +54,26 @@ void	pa(t_list **a, t_list **b)
 	(*a)->previous->next = temp;
 	(*a)->previous = temp;
 	*a = temp;
-	write(1, "pa\n", 3);
+	if (is_w)
+		write(1, "pa\n", 3);
 }
 
 // First of stack a in send to be First of stack b
-void	pb(t_list **a, t_list **b)
+void	pb(t_list **a, t_list **b, int is_w)
 {
 	t_list	*temp;
 
 	if (!*a)
 		return ;
 	temp = *a;
-	is_setup(a, temp);
+	ft_setup(a, temp);
 	if (!b || !*b)
 	{
 		*b = temp;
 		(*b)->next = temp;
 		(*b)->previous = temp;
-		write(1, "pb\n", 3);
+		if (is_w)
+			write(1, "pb\n", 3);
 		return ;
 	}
 	temp->previous = (*b)->previous;
@@ -78,5 +81,6 @@ void	pb(t_list **a, t_list **b)
 	(*b)->previous->next = temp;
 	(*b)->previous = temp;
 	*b = temp;
-	write(1, "pb\n", 3);
+	if (is_w)
+		write(1, "pb\n", 3);
 }

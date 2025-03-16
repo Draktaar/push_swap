@@ -69,12 +69,12 @@ static void	do_raorra(t_list **a, int step)
 	{
 		if (i < 0)
 		{
-			rra(a);
+			rra(a, 1);
 			i++;
 		}
 		else
 		{
-			ra(a);
+			ra(a, 1);
 			i--;
 		}
 	}
@@ -95,11 +95,11 @@ void	ft_divconq(t_list **a, t_list **b, int size)
 		if ((*a)->nb <= min + chunck)
 		{
 			if ((*a)->nb <= min + chunck / 2)
-				pb(a, b);
+				pb(a, b, 1);
 			else
 			{
-				pb(a, b);
-				rb(b);
+				pb(a, b, 1);
+				rb(b, 1);
 			}
 		}
 		else

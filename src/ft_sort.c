@@ -6,45 +6,45 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 14:26:14 by achu              #+#    #+#             */
-/*   Updated: 2025/03/15 18:58:06 by achu             ###   ########.fr       */
+/*   Updated: 2025/03/16 17:42:33 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 // Search form left to right of stack a number, and return the number of step 
-static int	ft_rrtalgo(t_list *a, t_list *b)
+static int	ft_fakerrb(t_list *a, t_list *b)
 {
 	int		step;
-	t_list	*ta;
-	t_list	*tb;
+	t_list	*fa;
+	t_list	*fb;
 
 	step = 0;
-	ta = a;
-	tb = b;
-	while (tb->nb < get_max(tb) && \
-	tb->nb < ta->previous->nb && ta->previous->nb < get_max(ta))
+	fa = a;
+	fb = b;
+	while (fb->nb < get_max(fb) && \
+	fb->nb < fa->previous->nb && fa->previous->nb < get_max(fa))
 	{
-		rrt(&tb);
+		rrb(&fb, 0);
 		step--;
 	}
 	return (step);
 }
 
 // Search form right to left of stack a number, and return the number of step 
-static int	ft_rtalgo(t_list *a, t_list *b)
+static int	ft_fakerb(t_list *a, t_list *b)
 {
 	int		step;
-	t_list	*ta;
-	t_list	*tb;
+	t_list	*fa;
+	t_list	*fb;
 
 	step = 0;
-	ta = a;
-	tb = b;
-	while (tb->nb < get_max(tb) && \
-	tb->nb < ta->previous->nb && ta->previous->nb < get_max(ta))
+	fa = a;
+	fb = b;
+	while (fb->nb < get_max(fb) && \
+	fb->nb < fa->previous->nb && fa->previous->nb < get_max(fa))
 	{
-		rt(&tb);
+		rb(&fb, 0);
 		step++;
 	}
 	return (step);
@@ -57,8 +57,8 @@ static int	ft_algostep(t_list *a, t_list *b)
 	int	neg;
 	int	step;
 
-	pos = ft_rrtalgo(a, b);
-	neg = ft_rtalgo(a, b);
+	pos = ft_fakerrb(a, b);
+	neg = ft_fakerb(a, b);
 	step = ft_mincmp(pos, neg);
 	return (step);
 }
@@ -75,12 +75,12 @@ static void	do_rborrb(t_list **b, int step)
 	{
 		if (i < 0)
 		{
-			rrb(b);
+			rrb(b, 1);
 			i++;
 		}
 		else
 		{
-			rb(b);
+			rb(b, 1);
 			i--;
 		}
 	}
@@ -95,17 +95,17 @@ void	ft_sort(t_list **a, t_list **b)
 		size = 6;
 	ft_divconq(a, b, size);
 	do_rborrb(b, ft_findmax(*b));
-	pa(a, b);
+	pa(a, b, 1);
 	while (*b)
 	{
 		while (get_max(*a) > (*a)->previous->nb && \
 		(*a)->previous->nb > get_max(*b))
-			rra(a);
+			rra(a, 1);
 		do_rborrb(b, ft_algostep(*a, *b));
-		pa(a, b);
+		pa(a, b, 1);
 		if ((*b) && (*a)->nb < get_max(*b))
-			ra(a);
+			ra(a, 1);
 	}
 	while (!is_sorted(*a))
-		rra(a);
+		rra(a, 1);
 }

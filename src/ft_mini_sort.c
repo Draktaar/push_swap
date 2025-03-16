@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 11:55:51 by achu              #+#    #+#             */
-/*   Updated: 2025/03/15 18:50:28 by achu             ###   ########.fr       */
+/*   Updated: 2025/03/16 17:06:05 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,12 @@ static void	do_raorra(t_list **b, int step)
 	{
 		if (i < 0)
 		{
-			rra(b);
+			rra(b, 1);
 			i++;
 		}
 		else
 		{
-			ra(b);
+			ra(b, 1);
 			i--;
 		}
 	}
@@ -45,21 +45,21 @@ static void	ft_three(t_list **stack)
 	mid = (*stack)->next->nb;
 	bot = (*stack)->next->next->nb;
 	if (top > mid && mid < bot && top < bot)
-		sa(stack);
+		sa(stack, 1);
 	else if (top > mid && mid > bot && top > bot)
 	{
-		sa(stack);
-		rra(stack);
+		sa(stack, 1);
+		rra(stack, 1);
 	}
 	else if (top > mid && mid < bot && top > bot)
-		ra(stack);
+		ra(stack, 1);
 	else if (top < mid && mid > bot && top < bot)
 	{
-		sa(stack);
-		ra(stack);
+		sa(stack, 1);
+		ra(stack, 1);
 	}
 	else if (top < mid && mid > bot && top > bot)
-		rra(stack);
+		rra(stack, 1);
 }
 
 static void	ft_four(t_list **a, t_list **b)
@@ -68,24 +68,24 @@ static void	ft_four(t_list **a, t_list **b)
 
 	min = get_min(*a);
 	while ((*a)->nb != min)
-		ra(a);
-	pb(a, b);
+		ra(a, 1);
+	pb(a, b, 1);
 	ft_three(a);
-	pa(a, b);
+	pa(a, b, 1);
 }
 
 static void	ft_five(t_list **a, t_list **b)
 {
 	do_raorra(a, ft_findmax(*a));
-	pb(a, b);
+	pb(a, b, 1);
 	do_raorra(a, ft_findmax(*a));
-	pb(a, b);
+	pb(a, b, 1);
 	ft_three(a);
-	sb(b);
-	pa(a, b);
-	pa(a, b);
+	sb(b, 1);
+	pa(a, b, 1);
+	pa(a, b, 1);
 	while (!is_sorted(*a))
-		rra(a);
+		rra(a, 1);
 }
 
 void	ft_minisort(t_list **a, t_list **b)
@@ -96,7 +96,7 @@ void	ft_minisort(t_list **a, t_list **b)
 	if (!is_sorted(*a))
 	{
 		if (size == 2)
-			sa(a);
+			sa(a, 1);
 		else if (size == 3)
 			ft_three(a);
 		else if (size == 4)

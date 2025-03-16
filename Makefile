@@ -6,19 +6,19 @@
 #    By: achu <achu@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/25 14:10:45 by achu              #+#    #+#              #
-#    Updated: 2025/03/15 19:20:14 by achu             ###   ########.fr        #
+#    Updated: 2025/03/16 16:54:47 by achu             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -g3
 
-NAME =	push_swap
-NAMEB =	checker
+EXECNAME =	push_swap
+CHECKNAME =	checker
 
 SRCDIR =	src
-SRCBDIR =	bonus
 INCDIR =	includes
+BONUSDIR =	bonus
 
 LIBFT  =	lib/libft
 PRINTF =	lib/printf
@@ -35,42 +35,45 @@ SRC =	op/push.c \
 		init.c \
 		ft_divconq.c \
 		ft_sort.c \
-		ft_mini_sort.c \
-		main.c \
-
-SRCB =	checker.c \
+		ft_mini_sort.c
+EXECSRC =	push_swap.c
+CHECKSRC =	checker.c
 
 OBJS =	$(addprefix $(SRCDIR)/, $(SRC:.c=.o))
-OBJSB =	$(addprefix $(SRCBDIR)/, $(SRCB:.c=.o))
+OBJSEXEC =	$(addprefix $(SRCDIR)/, $(EXECSRC:.c=.o))
+OBJSBONUS =	$(addprefix $(BONUSDIR)/, $(CHECKSRC:.c=.o))
 
-all: $(NAME)
+all: $(EXECNAME)
 
-$(NAME): 	$(OBJS)
+$(EXECNAME): 	$(OBJS) $(OBJSEXEC)
 	$(MAKE) --no-print-directory -C $(LIBFT)
 	$(MAKE) --no-print-directory -C $(PRINTF)
-	$(CC) $(CFLAGS) $(OBJS) $(LIBFT)/libft.a $(PRINTF)/printf.a -o $(NAME)
-
-bonus: all $(NAMEB)
-
-$(NAMEB): 	$(OBJSB)
-	$(CC) $(CFLAGS) $(OBJSB) $(LIBFT)/libft.a $(PRINTF)/printf.a -o $(NAMEB)
+	$(CC) $(CFLAGS) $(OBJS) $(OBJSEXEC) $(LIBFT)/libft.a $(PRINTF)/printf.a -o $(EXECNAME)
 	
+$(CHECKNAME): 	$(OBJS) $(OBJSBONUS)
+	$(CC) $(CFLAGS) $(OBJS) $(OBJSBONUS) $(LIBFT)/libft.a $(PRINTF)/printf.a -o $(CHECKNAME)
+
+bonus: $(EXECNAME) $(CHECKNAME)
+
 %.o: %.c
 	$(CC) $(CFLAGS) -I $(INCDIR) -I $(LIBFT) -I $(PRINTF) -c $< -o $@
 
 $(OBJS): 	$(HEADERS)
+$(OBJSEXEC): 	$(HEADERS)
+$(OBJSBONUS): 	$(HEADERS)
 
 clean:
 	$(MAKE) --no-print-directory clean -C $(LIBFT)
 	$(MAKE) --no-print-directory clean -C $(PRINTF)
 	rm -rf $(OBJS)
-	rm -rf $(OBJSB)
+	rm -rf $(OBJSEXEC)
+	rm -rf $(OBJSBONUS)
 
 fclean: clean
 	$(MAKE) --no-print-directory fclean -C $(LIBFT)
 	$(MAKE) --no-print-directory fclean -C $(PRINTF)
-	rm -rf $(NAME)
-	rm -rf $(NAMEB)
+	rm -rf $(EXECNAME)
+	rm -rf $(CHECKNAME)
 
 re: fclean all
 

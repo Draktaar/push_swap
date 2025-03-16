@@ -6,14 +6,14 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 15:01:52 by achu              #+#    #+#             */
-/*   Updated: 2025/03/10 16:57:28 by achu             ###   ########.fr       */
+/*   Updated: 2025/03/16 17:03:37 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 // First and Next are swaped in the stack a
-void	sa(t_list **a)
+void	sa(t_list **a, int is_w)
 {
 	t_list	*swap1;
 	t_list	*swap2;
@@ -29,11 +29,12 @@ void	sa(t_list **a)
 	swap1->previous = swap2;
 	swap2->next = swap1;
 	*a = swap2;
-	write(1, "sa\n", 3);
+	if (is_w)
+		write(1, "sa\n", 3);
 }
 
 // First and Next are swaped in the stack b
-void	sb(t_list **b)
+void	sb(t_list **b, int is_w)
 {
 	t_list	*swap1;
 	t_list	*swap2;
@@ -49,13 +50,15 @@ void	sb(t_list **b)
 	swap1->previous = swap2;
 	swap2->next = swap1;
 	*b = swap2;
-	write(1, "sb\n", 3);
+	if (is_w)
+		write(1, "sb\n", 3);
 }
 
 // First and Next are swaped in the stack a and b
-void	ss(t_list **a, t_list **b)
+void	ss(t_list **a, t_list **b, int is_w)
 {
-	sa(a);
-	sb(b);
-	write(1, "ss\n", 3);
+	sa(a, 0);
+	sb(b, 0);
+	if (is_w)
+		write(1, "ss\n", 3);
 }

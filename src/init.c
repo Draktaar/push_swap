@@ -19,10 +19,8 @@ int		is_dup(t_list *stack, int dup);
 static int	is_valid(t_list *stack, char *str)
 {
 	int		nb;
-	t_list	*temp;
 
 	nb = ft_atoi(str);
-	temp = stack;
 	if (!is_num(str))
 		return (0);
 	else if (is_limit(str))
