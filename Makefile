@@ -6,7 +6,7 @@
 #    By: achu <achu@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/25 14:10:45 by achu              #+#    #+#              #
-#    Updated: 2025/03/16 16:54:47 by achu             ###   ########.fr        #
+#    Updated: 2025/03/16 21:04:42 by achu             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ SRC =	op/push.c \
 		op/swap.c \
 		op/rotate.c \
 		op/rrotate.c \
+		utils/utils_math.c \
 		utils/utils_init.c \
 		utils/utils_list.c \
 		utils/utils_sort.c \
