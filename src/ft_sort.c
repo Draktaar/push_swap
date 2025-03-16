@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 14:26:14 by achu              #+#    #+#             */
-/*   Updated: 2025/03/16 17:42:33 by achu             ###   ########.fr       */
+/*   Updated: 2025/03/16 21:00:08 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,29 +61,6 @@ static int	ft_algostep(t_list *a, t_list *b)
 	neg = ft_fakerb(a, b);
 	step = ft_mincmp(pos, neg);
 	return (step);
-}
-
-// Depends on the number of step to take
-// Do rb if the step are positive 
-// Do rrb if the step are negative 
-static void	do_rborrb(t_list **b, int step)
-{
-	int	i;
-
-	i = step;
-	while (i != 0)
-	{
-		if (i < 0)
-		{
-			rrb(b, 1);
-			i++;
-		}
-		else
-		{
-			rb(b, 1);
-			i--;
-		}
-	}
 }
 
 void	ft_sort(t_list **a, t_list **b)

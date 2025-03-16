@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 16:28:31 by achu              #+#    #+#             */
-/*   Updated: 2025/03/13 20:26:44 by achu             ###   ########.fr       */
+/*   Updated: 2025/03/16 21:03:28 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,19 +46,48 @@ int	get_max(t_list *stack)
 	return (max);
 }
 
-// Return absolute value of a number
-int	ft_abs(int nb)
+// Depends on the number of step to take
+// Do ra if the step are positive 
+// Do rra if the step are negative 
+void	do_raorra(t_list **a, int step)
 {
-	if (nb < 0)
-		return (-nb);
-	return (nb);
+	int	i;
+
+	i = step;
+	while (i != 0)
+	{
+		if (i < 0)
+		{
+			rra(a, 1);
+			i++;
+		}
+		else
+		{
+			ra(a, 1);
+			i--;
+		}
+	}
 }
 
-// Return the comparaison of the smallest value from two absolute numbers
-int	ft_mincmp(int a, int b)
+// Depends on the number of step to take
+// Do rb if the step are positive 
+// Do rrb if the step are negative 
+void	do_rborrb(t_list **b, int step)
 {
-	if (ft_abs(a) < ft_abs(b))
-		return (a);
-	else
-		return (b);
+	int	i;
+
+	i = step;
+	while (i != 0)
+	{
+		if (i < 0)
+		{
+			rrb(b, 1);
+			i++;
+		}
+		else
+		{
+			rb(b, 1);
+			i--;
+		}
+	}
 }

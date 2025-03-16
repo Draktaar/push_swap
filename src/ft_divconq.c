@@ -57,29 +57,6 @@ static int	ft_sum_raorra(t_list **stack, int max)
 	return (result);
 }
 
-// Depends on the number of step to take
-// Do ra if the step are positive 
-// Do rra if the step are negative 
-static void	do_raorra(t_list **a, int step)
-{
-	int	i;
-
-	i = step;
-	while (i != 0)
-	{
-		if (i < 0)
-		{
-			rra(a, 1);
-			i++;
-		}
-		else
-		{
-			ra(a, 1);
-			i--;
-		}
-	}
-}
-
 // Split the stack a into multiple presorted chunck
 void	ft_divconq(t_list **a, t_list **b, int size)
 {

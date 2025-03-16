@@ -1,48 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils_sort.c                                       :+:      :+:    :+:   */
+/*   utils_math.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/29 15:54:04 by achu              #+#    #+#             */
-/*   Updated: 2025/03/16 21:09:17 by achu             ###   ########.fr       */
+/*   Created: 2025/03/16 21:04:25 by achu              #+#    #+#             */
+/*   Updated: 2025/03/16 21:07:39 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-// Print the entire stack
-void	printlist(t_list *stack)
-{
-	t_list	*temp;
-
-	if (!stack)
-		return ;
-	temp = stack;
-	while (temp->next != stack)
-	{
-		ft_printf(" %d\n", temp->nb);
-		temp = temp->next;
-	}
-	ft_printf(" %d\n", temp->nb);
-	ft_printf("---\n");
-}
-
-// Return true if the entire stack is sorted
-int	is_sorted(t_list *stack)
-{
-	t_list	*temp;
-
-	temp = stack;
-	while (temp->next != stack)
-	{
-		if (temp->next->nb < temp->nb)
-			return (0);
-		temp = temp->next;
-	}
-	return (1);
-}
 
 // Search form left to right of stack a number, and return the number of step 
 static int	ft_posstep(t_list *stack)
@@ -52,7 +20,7 @@ static int	ft_posstep(t_list *stack)
 
 	step = 0;
 	temp = stack;
-	while (temp->nb != get_max(stack))
+	while (temp->nb != get_min(stack))
 	{
 		temp = temp->next;
 		step++;
@@ -68,7 +36,7 @@ static int	ft_negstep(t_list *stack)
 
 	step = 0;
 	temp = stack;
-	while (temp->nb != get_max(stack))
+	while (temp->nb != get_min(stack))
 	{
 		temp = temp->previous;
 		step--;
@@ -77,7 +45,7 @@ static int	ft_negstep(t_list *stack)
 }
 
 // Return the smallest step to take to find that number
-int	ft_findmax(t_list *stack)
+int	ft_findmin(t_list *stack)
 {
 	int	pos;
 	int	neg;
@@ -87,4 +55,21 @@ int	ft_findmax(t_list *stack)
 	neg = ft_negstep(stack);
 	step = ft_mincmp(pos, neg);
 	return (step);
+}
+
+// Return absolute value of a number
+int	ft_abs(int nb)
+{
+	if (nb < 0)
+		return (-nb);
+	return (nb);
+}
+
+// Return the comparaison of the smallest value from two absolute numbers
+int	ft_mincmp(int a, int b)
+{
+	if (ft_abs(a) < ft_abs(b))
+		return (a);
+	else
+		return (b);
 }
