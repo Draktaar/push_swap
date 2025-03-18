@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 19:11:12 by achu              #+#    #+#             */
-/*   Updated: 2025/03/16 17:35:32 by achu             ###   ########.fr       */
+/*   Updated: 2025/03/18 15:28:55 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static void	ft_check(t_list **a, t_list **b)
 	char	*line;
 
 	while (1)
-    {
+	{
 		line = get_next_line(STDIN_FILENO);
 		if (!line || !is_valid(a, b, line))
 		{
@@ -54,8 +54,8 @@ static void	ft_check(t_list **a, t_list **b)
 			get_next_line(-1);
 			break ;
 		}
-        free(line);
-    }
+		free(line);
+	}
 	if (is_sorted(*a) && !(*b))
 		write(1, "OK\n", 3);
 	else
