@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 14:10:38 by achu              #+#    #+#             */
-/*   Updated: 2025/03/16 20:29:49 by achu             ###   ########.fr       */
+/*   Updated: 2025/03/18 15:37:23 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ int	main(int argc, char **argv)
 
 	a = NULL;
 	b = NULL;
+	if (argc <= 1)
+		return (0);
 	if (!ft_init(&a, argc, argv))
 		return (ft_stack_clear(&a), error("Error"), 1);
 	size = ft_stack_size(a);

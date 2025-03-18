@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 15:54:04 by achu              #+#    #+#             */
-/*   Updated: 2025/03/16 21:09:17 by achu             ###   ########.fr       */
+/*   Updated: 2025/03/18 19:14:59 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,14 @@ void	printlist(t_list *stack)
 	ft_printf("---\n");
 }
 
+// TODO: Is sorted bug de fou et rend les rend les tri aui sont trie de base a les retrier
 // Return true if the entire stack is sorted
 int	is_sorted(t_list *stack)
 {
 	t_list	*temp;
 
+	if (!stack)
+		return (1);
 	temp = stack;
 	while (temp->next != stack)
 	{

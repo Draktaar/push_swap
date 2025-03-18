@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 17:01:43 by achu              #+#    #+#             */
-/*   Updated: 2025/03/15 18:57:46 by achu             ###   ########.fr       */
+/*   Updated: 2025/03/18 19:14:21 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,7 @@ int	ft_init(t_list **stack, int ac, char **av)
 {
 	char	**tab;
 
-	if (ac <= 1)
-		return (0);
-	else if (ac == 2)
+	if (ac == 2)
 	{
 		tab = ft_split(av[1], ' ');
 		if (!tab)

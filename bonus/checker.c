@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 19:11:12 by achu              #+#    #+#             */
-/*   Updated: 2025/03/18 15:28:55 by achu             ###   ########.fr       */
+/*   Updated: 2025/03/18 15:44:21 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,8 @@ int	main(int argc, char **argv)
 
 	a = NULL;
 	b = NULL;
+	if (argc <= 1)
+		return (0);
 	if (!ft_init(&a, argc, argv))
 		return (ft_stack_clear(&a), error("Error"), 1);
 	ft_check(&a, &b);
