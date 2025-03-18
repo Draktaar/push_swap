@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 14:11:56 by achu              #+#    #+#             */
-/*   Updated: 2025/03/16 21:06:00 by achu             ###   ########.fr       */
+/*   Updated: 2025/03/18 15:16:37 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int		ft_init(t_list **stack, int ac, char **av);
 
 /// *** Double Circular Linked List ***
 t_list	*ft_stack_new(int content);
-void	ft_stack_addback(t_list **lst, t_list *new);
+void	ft_stack_addback(t_list **stack, t_list *new);
 int		ft_stack_size(t_list *lst);
 void	ft_stack_clear(t_list **lst);
 
