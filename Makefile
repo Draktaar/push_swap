@@ -6,7 +6,7 @@
 #    By: achu <achu@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/25 14:10:45 by achu              #+#    #+#              #
-#    Updated: 2025/03/16 21:04:42 by achu             ###   ########.fr        #
+#    Updated: 2025/03/18 15:13:33 by achu             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,12 +16,12 @@ CFLAGS = -Wall -Wextra -Werror -g3
 EXECNAME =	push_swap
 CHECKNAME =	checker
 
-SRCDIR =	src
+SRCDIR =	srcs
 INCDIR =	includes
 BONUSDIR =	bonus
 
-LIBFT  =	lib/libft
-PRINTF =	lib/printf
+LIBFT  =	libs/libft
+PRINTF =	libs/printf
 HEADERS =	$(INCDIR)/push_swap.h $(LIBFT)/libft.h $(PRINTF)/ft_printf.h
 
 SRC =	op/push.c \
