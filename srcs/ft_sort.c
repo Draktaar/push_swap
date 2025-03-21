@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 14:26:14 by achu              #+#    #+#             */
-/*   Updated: 2025/03/16 21:00:08 by achu             ###   ########.fr       */
+/*   Updated: 2025/03/21 11:46:45 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,8 @@ void	ft_sort(t_list **a, t_list **b)
 {
 	int	size;
 
+	if (is_sorted(*a))
+		return ;
 	size = 3;
 	if (ft_stack_size(*a) > 200)
 		size = 6;
