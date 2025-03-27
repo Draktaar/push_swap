@@ -16,12 +16,12 @@ CFLAGS = -Wall -Wextra -Werror -g3
 EXECNAME =	push_swap
 CHECKNAME =	checker
 
-SRCDIR =	srcs
-INCDIR =	includes
+SRCDIR =	src
+INCDIR =	inc
 BONUSDIR =	bonus
 
-LIBFT  =	libs/libft
-PRINTF =	libs/printf
+LIBFT  =	lib/libft
+PRINTF =	lib/printf
 HEADERS =	$(INCDIR)/push_swap.h $(LIBFT)/libft.h $(PRINTF)/ft_printf.h
 
 SRC =	op/push.c \
