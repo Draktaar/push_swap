@@ -62,7 +62,7 @@ int	ft_init(t_list **stack, int ac, char **av)
 	if (ac == 2)
 	{
 		tab = ft_split(av[1], ' ');
-		if (!tab)
+		if (!tab || !tab[0])
 			return (0);
 		if (!ft_parse_stack(stack, tab))
 			return (ft_clear_dbl(tab), 0);
